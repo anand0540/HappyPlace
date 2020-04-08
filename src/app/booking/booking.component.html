@@ -33,16 +33,17 @@
         <form >
             <div>
                 <br>
-                <input id="bookingFormName" placeholder="NAME" class="formbox"
+                <input id="bookingFormName" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'" class="formbox"
                     type="text" value="" onChange=(this.handleNameChange); />
                 <br />
                 <br />
                 <input id="bookingFormPhone" class="formbox"
-                    placeholder="MOBILE NUMBER" type="phone" value=""
+                    placeholder="MOBILE NUMBER" onfocus="this.placeholder=''" onblur="this.placeholder='MOBILE NUMBER'" type="phone" value=""
                     onChange=(this.handlePhoneChange) border-top=none; />
                 <br />
                 <br />
-                <input id="bookingFormEmail"   placeholder="EMAIL" class="formbox"
+                <input id="bookingFormEmail"    class="formbox"
+                     placeholder="EMAIL " onfocus="this.placeholder=''" onblur="this.placeholder=' EMAIL'"
                     type="email" value="" onChange=(this.handleEmailChange) />
                 <br />
                 <br />
