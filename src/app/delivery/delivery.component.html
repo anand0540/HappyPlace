@@ -1,0 +1,91 @@
+
+
+
+
+<div class="featuredboxwrapper">
+    <div class="bookingleftwrapper">
+        <div class="bookingbannerheadingwrapper">
+            Fast Food<br>Faster Delivery
+        </div>
+    </div>
+
+
+    <div class="rightwrapper">
+        <img src="assets/pinkphone.jpg" alt="yellow food bike" width=100%>
+    </div>
+
+
+</div>
+
+
+
+<div id="orderFormContainer" class="bookingForm__container">
+    <form>
+        <div>
+            <br/>
+
+            <input id="orderFormAddress"  class="formbox"
+                placeholder="TYPE IN YOUR ORDER" type="text" value=""
+                onChange=(this.handleOrderChange) />
+            <br/>
+
+
+            <input id="orderFormName" class="formbox" placeholder="NAME" type="text"
+                value="" onChange=(this.handleNameChange)/>
+            <br/>
+             <input id="orderFormPhone" class="formbox"
+                placeholder="PHONE NUMBER" type="phone" value=""
+                onChange=(this.handlePhoneChange) />
+            <br/>
+             <input id="orderFormEmail" class="formbox" placeholder="EMAIL"
+                type="email" value="" onChange=(this.handleEmailChange) />
+            <br/>
+             <input id="orderFormAddress" class="formbox"
+                placeholder="DELIVERY LOCATION" type="text" value=""
+                onChange=(this.handleAddressChange) />
+            <br/>
+             <select type="number" id="seatsSelector" class="formbox" value=""
+                onChange=(this.handleSelectChange)>
+                <option value="true">Cash on Delivery</option><br/>
+
+                <option value="false">Online</option>
+            </select>
+            <br/>
+             <input type="submit" value="Submit" class="btn btn-dark"  />
+            <br/>
+       
+
+    <p id="error">
+        <!-- {{this.state.orderErrorVisible && this.state.orderErrorMessage}} -->
+    </p>
+    </div>
+</form>
+
+</div>
+
+
+
+
+<div class="navbarwrapper">
+    <div class="tophalfcontentwrapper">
+        <div class="topleftcontentwrapper"> </div>
+    </div>
+    <!-- <div class="bottomhalfcontentwrapper">
+        <div class="navbarlinkwrapper">
+
+            <a class="navbarlink" href="">
+                <span class="glyphicon glyphicon-earphone"></span> 9999999999
+            </a>
+
+            <a class="navbarlink" href=" ">
+                Minor Project
+            </a>
+
+            <a class="navbarlink" href=""><span class="glyphicon glyphicon-envelope">
+            </span> 
+            hi @ My Restaurant.com
+            </a>
+
+        </div>
+    </div> -->
+</div>
