@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display");
 @import url("https://fonts.googleapis.com/css?family=Francois+One");
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 h1{
   font-family: "Abril Fatface";
@@ -337,21 +337,25 @@ color: #000000;
 
 
 .maincard{
-  display: flex;
-  width: 30%;
-  flex-direction: column;
+  display: inline-block;
+   /* flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-around; */
+  position: relative;
+  width: 30%;
   height:80%;
   border-radius: 20px;
-  background: #F3F9F9;
+  background: rgb(179, 184, 184);
   padding: 20px;
 }
 
 .sH1{
-  display: flex;
+  position: absolute;
+  left: 27.12%;
+  /* display: flex; */
   font-family: Abril Fatface;
-  font-size: 3em;
+  font-size: 2em;
+
   align-self: center;
   font-style: normal;
   font-weight: normal;
@@ -361,9 +365,14 @@ color: #000000;
 }
 
 .sdetails{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 66px;
+  top: 175px;
   align-items: center;
 }
 
@@ -388,12 +397,21 @@ color: #000000;
 }
 
 .sPass{
-  
+  position: absolute;
+  height: 30px;
+  text-align:center;
+  left: 0%;
+  right: 0%;
+  top: 21.97%;
+  /* bottom: 64.57%; */
+  background: #F3F9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
   border-top: none;
   border-left: none;
   border-right: none;
   outline: none;
-  background: none;
+  /* background: none; */
   font-size:1em;
   letter-spacing: 0.4em;
   
@@ -415,7 +433,16 @@ color: #000000;
 
  
 }
-
+.btn-sm{
+  position: absolute;
+  left: 101px;
+  top: 105px;
+}
+.btn-dm{
+  position: absolute;
+  left: 34px;
+  top: 255px;
+}
 .or{
   font-family: Raleway;
   font-style: normal;
@@ -427,6 +454,11 @@ color: #000000;
   color: darkgray;
   padding-top: 10px;
   padding-bottom: 10px;
+  position: absolute;
+        left: 48.45%;
+        top: 67.31%;
+        color: #696969;
+
   
 }
 
@@ -434,6 +466,17 @@ color: #000000;
   font-family: Raleway;
   color: #000;
   font-size: 0.7em;
+  position: absolute;
+        left: 18.45%;
+        top: 130.53%;
+    
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    text-align: center;
+    text-decoration:none;
+    
+    color: #000000;
 }
 
 .belowlogin:hover{
@@ -628,7 +671,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)), url(assets/aboutbannerimage.png); */
+  background-image: url(assets/about-cover.jpg);
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)), url(assets/about-cover.jpeg); */
   mix-blend-mode: normal;
   width: 100%; height: 618px;
   background-repeat: no-repeat;
@@ -866,10 +910,10 @@ padding-top:10px;
 margin-top: 5px;
   
 }
-
+/* 
 .fooditem:hover{
   transform:scale(1.1);
-}
+} */
 
 
 
@@ -1385,7 +1429,7 @@ margin-top: 5px;
     }
     
     
-    .sH1{
+    /* .sH1{
     position: absolute;
     left: 30.92%;
     right: 39.9%;
@@ -1400,16 +1444,16 @@ margin-top: 5px;
     text-align: center;
     
     color: #100F0F;
-    }
+    } */
     
     
-    .sdetails{
+    /* .sdetails{
     position: absolute;
     width: 250px;
     height: 250px;
     left: 115px;
     top: 137px;
-    }
+    } */
     
     
     
@@ -1426,21 +1470,22 @@ margin-top: 5px;
         border-radius: 20px;
     }
     
-    .sPass{
+    /* .sPass{
         position: absolute;
         height: 30px;
         text-align:center;
         left: 0%;
         right: 0%;
         top: 21.97%;
-        /* bottom: 64.57%; */
         background: #F3F9F9;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
-    }
+    } */
     
     .sconfirmPass{
     position: absolute;
+    width: 250px;
+
         left: 0%;
         right: 0%;
         height: 30px;
@@ -1450,10 +1495,14 @@ margin-top: 5px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
         text-align:center;
+        outline: none;
+
     }
     
     .sName{
     position: absolute;
+    width: 250px;
+
         left: 0%;
         right: 0%;
         height: 30px;
@@ -1463,10 +1512,14 @@ margin-top: 5px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         text-align:center;
         border-radius: 20px;
+        outline: none;
+
     }
     
     .sMobileNo{
     position: absolute;
+    width: 250px;
+
         left: 0%;
         right: 0%;
         top: 86.55%;
@@ -1476,6 +1529,8 @@ margin-top: 5px;
         background: #F3F9F9;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
+        outline: none;
+
     }
     
     .bSignup{
@@ -1492,7 +1547,7 @@ margin-top: 5px;
         line-height: normal;
         font-size :12px;
         text-align: center;
-        color: purple;
+        color: #000;
         margin-top:9px;
     }
     
@@ -1523,10 +1578,14 @@ margin-top: 5px;
         top: 120px;
         border-radius: 15px;
     }
-    
+    #signupCard{
+      position: absolute !important;
+      left: 66px !important;
+      top: 95px !important;   }
+/*     
     .or{
         position: absolute;
-        left: 11.45%;
+        left: 30.45%;
         right: 44.45%;
         top: 67.31%;
         bottom: 36.81%;
@@ -1540,14 +1599,14 @@ margin-top: 5px;
     letter-spacing: 0.1em;
     
     color: #696969;
-    }
+    } */
     
     .orlineL{
         position: absolute;
         width: 110px;
         height: 0px;
-        left: -50px;
-        top: 175px;
+        left: -140px;
+        top: -10px;
         border: 1px solid #C4C4C4;
     }
     
@@ -1555,8 +1614,8 @@ margin-top: 5px;
         position: absolute;
         width: 110px;
         height: 0px;
-        left: 100px;
-        top: 175px;
+        left: 38px;
+        top: 10px;
         border: 1px solid #C4C4C4;
     }
     .bgooglelogin{
@@ -1570,7 +1629,7 @@ margin-top: 5px;
         color:white;
     }
     
-    .belowlogin{
+    /* .belowlogin{
         position: absolute;
         left: 3.45%;
         right: 35.45%;
@@ -1586,7 +1645,7 @@ margin-top: 5px;
     text-decoration:none;
     
     color: #000000;
-    }
+    } */
     
     /*==================Menu=========================*/
     
@@ -1721,4 +1780,77 @@ margin-top: 5px;
         text-align: center;
         color: #100F0F;
     }
-    
+    /* ==================================================ORDER MENU========================================== */
+.orderMenu {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+}
+.orderMenu--intro {
+	font-family: "Great Vibes";
+	margin: 50px 0;
+	text-align: center;
+}
+.orderMenu__container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 75px;
+}
+.orderMenu--item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 50px;
+}
+.orderMenu--item--thumb {
+	margin-right: 40px;
+	border: #dd4b39 20px solid;
+	padding: 2px;
+}
+.orderMenu__done {
+	margin-top: 75px;
+}
+.orderMenu__done--total {
+	margin-bottom: 25px;
+	font-weight: bold;
+}
+.orderMenu--item--info {
+	margin-right: 20px;
+}
+.orderMenu--item--info1 {
+	font-weight: bold;
+}
+.orderMenu--item--info2 {
+	max-width: 250px;
+}
+.orderMenu--item--price {
+	margin-right: 14px;
+	font-weight: bold;
+}
+.orderMenu--item--qtyContainer {
+	display: flex;
+	align-items: center;
+}
+.orderMenu--item--buttonLess {
+	width: 50px;
+	height: 25px;
+	background-color: white;
+	outline: none;
+	border-radius: 12px;
+}
+.orderFooter {
+	bottom: 0;
+}
+.orderMenu--item--h6 {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.orderMenu--item--buttonMore {
+	width: 50px;
+	height: 25px;
+	background-color: white;
+
+	outline: none;
+	border-radius: 12px;
+}

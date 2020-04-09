@@ -7,9 +7,12 @@ import { AboutComponent } from './about/about.component';
 import { BookingComponent } from './booking/booking.component';
 import { ContactComponent } from './contact/contact.component';
 import { DeliveryComponent } from './delivery/delivery.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 import { MenuComponent } from './menu/menu.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { AuthService } from './authentication/authentication.service';
+import { AddToCartComponent } from './delivery/add-to-cart/add-to-cart.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,15 @@ import { MenuComponent } from './menu/menu.component';
     DeliveryComponent,
     LoginComponent,
     SignupComponent,
-    MenuComponent
+    MenuComponent,
+    AuthenticationComponent,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

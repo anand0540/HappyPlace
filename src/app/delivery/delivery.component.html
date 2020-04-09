@@ -22,36 +22,33 @@
 <div id="orderFormContainer" class="bookingForm__container">
     <form>
         <div>
-            <br/>
-
-            <input id="orderFormAddress"  class="formbox"
-                placeholder="TYPE IN YOUR ORDER" type="text" value=""
-                onChange=(this.handleOrderChange) />
+        
             <br/>
 
 
-            <input id="orderFormName" class="formbox" placeholder="NAME" type="text"
+            <input id="orderFormName" class="formbox" style="margin: 10px 0;" 
+            placeholder="NAME" type="text"
                 value="" onChange=(this.handleNameChange)/>
             <br/>
-             <input id="orderFormPhone" class="formbox"
+             <input id="orderFormPhone" class="formbox" style="margin: 10px 0;"
                 placeholder="PHONE NUMBER" type="phone" value=""
                 onChange=(this.handlePhoneChange) />
             <br/>
-             <input id="orderFormEmail" class="formbox" placeholder="EMAIL"
+             <input id="orderFormEmail" class="formbox" style="margin: 10px 0;" placeholder="EMAIL"
                 type="email" value="" onChange=(this.handleEmailChange) />
             <br/>
-             <input id="orderFormAddress" class="formbox"
+             <input id="orderFormAddress" class="formbox" style="margin: 10px 0;"
                 placeholder="DELIVERY LOCATION" type="text" value=""
                 onChange=(this.handleAddressChange) />
             <br/>
-             <select type="number" id="seatsSelector" class="formbox" value=""
+             <select type="number" id="seatsSelector" class="formbox" style="margin: 10px 0; height: 30px"  value=""
                 onChange=(this.handleSelectChange)>
                 <option value="true">Cash on Delivery</option><br/>
 
                 <option value="false">Online</option>
             </select>
             <br/>
-             <input type="submit" value="Submit" class="btn btn-dark"  />
+             <input type="submit" value="Submit" class="btn btn-dark" style="margin: 10px 60px;" />
             <br/>
        
 
