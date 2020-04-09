@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authSer: AuthService) { }
 
   ngOnInit(): void {
   }
-
+  onSignWithTwitter(){
+    this.authSer.signInWithTwitter();
+  }
+  onSignWithGoogle(){
+    this.authSer.signInWithGoogle();
+  }
 }

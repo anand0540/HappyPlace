@@ -11,16 +11,19 @@
     <input class="sMobileNo" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number"><br>
     
     <button type="button" class="btn btn-dark btn-sm" style="position: absolute !important;
-        top: 275px !important; ">SignUp</button>
+        top: 255px !important; ">SignUp</button>
         <div class="or" style="position: absolute !important;
-        top: 320px !important; "> <hr class="orlineL">  OR <hr class="orlineR"></div>
+        top: 300px !important; "> <hr class="orlineL">  OR <hr class="orlineR"></div>
         
         
-        <button class="btn btn-danger btn-dm " type="button" style="position: absolute !important;
-        top: 365px !important; "><span><i class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span> </button>
+        <button class="btn btn-danger btn-dm " type="button" (click)="onSignWithGoogle()" style="position: absolute !important;
+        top: 345px !important; "><span><i class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span> </button>
+        <button class="btn btn-primary" style=" position: absolute;top: 395px;left: 35px;" type="button" (click)="onSignWithTwitter()">
+            <span><i class="fa fa-twitter"></i></span><span> &nbsp;| Login with Twitter</span> </button>
+
         <br>
         <a class="belowlogin" routerLink="/login" style="position: absolute !important;
-        top: 420px !important; ">Already have an Account?<b> Log In</b> </a>
+        top: 450px !important; ">Already have an Account?<b> Log In</b> </a>
     
     </div>
     <!-- </div>

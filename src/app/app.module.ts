@@ -11,8 +11,12 @@ import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { MenuComponent } from './menu/menu.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { AuthService } from './authentication/authentication.service';
 import { AddToCartComponent } from './delivery/add-to-cart/add-to-cart.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { AddToCartComponent } from './delivery/add-to-cart/add-to-cart.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig , 'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
