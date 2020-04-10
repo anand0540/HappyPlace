@@ -6,9 +6,8 @@ import { BookingComponent } from './booking/booking.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContactComponent } from './contact/contact.component';
-import { SignupComponent } from './authentication/signup/signup.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
+import { SignupComponent } from './authenticate/signup/signup.component';
+import { LoginComponent } from './authenticate/login/login.component';
 import { AddToCartComponent } from './delivery/add-to-cart/add-to-cart.component';
 
 
@@ -20,8 +19,8 @@ const routes: Routes = [
   {path:'order', component:DeliveryComponent},
   {path:'menu', component:MenuComponent},
   {path:'contact', component:ContactComponent},
-  {path:'signup', component:AuthenticationComponent},
-  {path:'login', component:AuthenticationComponent}
+  {path:'signup', component:SignupComponent},
+  {path:'login', component:LoginComponent}
 ];
 
 @NgModule({

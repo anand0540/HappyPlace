@@ -7,10 +7,23 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  user = {
+    email: '',
+    password: '',
+    confirmPass: '',
+    name: '',
+    mobile: ''
+ };
   constructor(private authSer: AuthService) { }
 
   ngOnInit(): void {
+  }
+  onSignUpRegular(){
+    console.log(this.user.name);
+    console.log(this.user.mobile);
+
+    
+    this.authSer.signUpRegular(this.user.email,this.user.password);
   }
   onSignWithTwitter(){
     this.authSer.signInWithTwitter();
