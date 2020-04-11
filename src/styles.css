@@ -508,7 +508,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 input.ng-touched.ng-invalid{
   border-color: #dc3545;
 }
-
+.reqfield{
+  margin-left: 53px;
+  color: #dc3545;
+  font-size:80%;
+  width: 100%;
+}
 /*==================================================BOOKING=========================================================*/
 
 .bookingbannerheadingwrapper{

@@ -3,21 +3,25 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { BookingComponent } from './booking/booking.component';
-import { ContactComponent } from './contact/contact.component';
-import { DeliveryComponent } from './delivery/delivery.component';
-import { LoginComponent } from './authenticate/login/login.component';
-import { SignupComponent } from './authenticate/signup/signup.component';
-import { MenuComponent } from './menu/menu.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { AddToCartComponent } from './delivery/add-to-cart/add-to-cart.component';
+import { HomeComponent } from './content/users/home/home.component';
+import { AboutComponent } from './content/users/about/about.component';
+import { BookingComponent } from './content/users/booking/booking.component';
+import { ContactComponent } from './content/users/contact/contact.component';
+import { DeliveryComponent } from './content/users/delivery/delivery.component';
+import { LoginComponent } from './content/users/authenticate/login/login.component';
+import { SignupComponent } from './content/users/authenticate/signup/signup.component';
+import { MenuComponent } from './content/users/menu/menu.component';
+import { AddToCartComponent } from './content/users/delivery/add-to-cart/add-to-cart.component';
 import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AuthService } from './services/auth.service';
+// import { AuthService } from './services/auth.service';
+import { UserService } from './content/services/user.service';
+import { ToastrModule } from 'ngx-toastr';
+
+// Firebase imports
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AdminComponent } from './content/admin/admin.component'
 
 @NgModule({
   declarations: [
@@ -30,18 +34,18 @@ import { AuthService } from './services/auth.service';
     LoginComponent,
     SignupComponent,
     MenuComponent,
-    AuthenticationComponent,
-    AddToCartComponent
+    AddToCartComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig , 'angular-auth-firebase'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    ToastrModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [ UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

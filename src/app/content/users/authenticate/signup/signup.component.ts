@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+// import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
     name: '',
     mobile: ''
  };
-  constructor(private authSer: AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -23,12 +23,12 @@ export class SignupComponent implements OnInit {
     console.log(this.user.mobile);
 
     
-    this.authSer.signUpRegular(this.user.email,this.user.password);
+    // this.authSer.signUpRegular(this.user.email,this.user.password);
   }
   onSignWithTwitter(){
-    this.authSer.signInWithTwitter();
+    // this.authSer.signInWithTwitter();
   }
   onSignWithGoogle(){
-    this.authSer.signInWithGoogle();
+    // this.authSer.signInWithGoogle();
   }
 }
