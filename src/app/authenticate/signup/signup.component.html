@@ -9,8 +9,8 @@
         <div class="sdetails" id="signupCard">
             <form name="userform" method="post" #formCtrl="ngForm">
 
-                <input class="sEmail" type="email" name="email" placeholder="email" [(ngModel)]="user.email"><br>
-                <input class="sPass" type="password" name="pass" placeholder="Password" [(ngModel)]="user.password"><br>
+                <input class="sEmail" type="email" name="email" placeholder="email" [(ngModel)]="user.email" required><br>
+                <input class="sPass" type="password" name="pass" placeholder="Password" [(ngModel)]="user.password" required><br>
                 <!-- <input class="sconfirmPass" type="password" name="confirmPass" placeholder="Confirm Password"><br> -->
                 <input class="sconfirmPass" type="text" name="Name" placeholder="Name"><br>
                 <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" ><br>

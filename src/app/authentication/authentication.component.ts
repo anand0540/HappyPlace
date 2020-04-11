@@ -13,8 +13,7 @@ export class AuthenticationComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.signUpClicked.subscribe(()=>this.signupClicked=true);
-    this.authService.logInClicked.subscribe(()=>this.loginClicked=true);
+    
   }
 
 }
