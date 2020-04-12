@@ -1,4 +1,19 @@
-<div class="navbarwrapper" style="position: sticky; top:0">
+<!-- <div *ngIf="adminLogin || !adminRefresh" class="navbarwrapper" style="position: sticky; top:0">
+  <div class="tophalfcontentwrapper" style="padding:20px">
+    <div class="topleftcontentwrapper">
+
+    </div>
+    <div class="logowrapper">
+      <a  style="margin-right: 354px;color:white">
+        Happy Place
+      </a>
+    </div>
+   
+  </div>
+ 
+</div> -->
+
+<div  class="navbarwrapper" style="position: sticky; top:0">
   <div class="tophalfcontentwrapper">
     <div class="topleftcontentwrapper">
 
@@ -9,25 +24,26 @@
       </a>
     </div>
     <div class="toprightcontentwrapper">
-      <button type="button" class="btn btn-success" routerLink="login" style="width: 80px!important ; margin:0 10px 0 0" >Login</button>
-      <button type="button" class="btn btn-primary" routerLink="signup" style="width: 80px; margin:0 0 0 10px" >SignUp</button>
+      <button type="button" class="btn btn-success" routerLink="/user/login" style="width: 80px!important ; margin:0 10px 0 0" >Login</button>
+      <button type="button" class="btn btn-primary" routerLink="/user/signup" style="width: 80px; margin:0 0 0 10px" >SignUp</button>
+      <button type="button" class="btn btn-danger" routerLink="/admin/login" style="width: 80px; margin:0 0 0 10px" >Admin</button>
     </div>
   </div>
   <div class="bottomhalfcontentwrapper">
     <div class="navbarlinkwrapper" >
-      <a class="navbarlink" routerLink="about">
+      <a class="navbarlink" routerLink="/user/about">
         ABOUT
       </a>
 
-      <a class="navbarlink" routerLink="booking">
+      <a class="navbarlink" routerLink="/user/booking">
         BOOKING
       </a>
 
-      <a class="navbarlink" routerLink="menu">
+      <a class="navbarlink" routerLink="/user/menu">
         MENU
       </a>
 
-      <a class="navbarlink" routerLink="delivery">
+      <a class="navbarlink" routerLink="/user/delivery">
         DELIVERY
       </a>
 
@@ -42,7 +58,7 @@
 
 <router-outlet></router-outlet>
 
-<div class="navbarwrapper" style="position: sticky;bottom:0">
+<div   class="navbarwrapper" style="position: sticky;bottom:0">
 
 <div class="bottomhalfcontentwrapper" style="height: 50px">
   <div class="navbarlinkwrapper">

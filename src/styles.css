@@ -580,6 +580,9 @@ input.ng-touched.ng-invalid{
     height: 15px; 
     outline: none;
   }
+  .form-margin{
+    margin: 10px 0;
+  }
 
 .griditemsall{
     display: flex;

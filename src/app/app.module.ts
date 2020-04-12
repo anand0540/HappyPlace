@@ -21,7 +21,11 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AdminComponent } from './content/admin/admin.component'
+import { AdminComponent } from './content/admin/admin.component';
+import { AdminLoginComponent } from './content/admin/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './content/admin/admin-dashboard/admin-dashboard.component';
+import { AdminUserComponent } from './content/admin/admin-dashboard/user-info/admin-user.component';
+import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order-status/admin-order-status.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { AdminComponent } from './content/admin/admin.component'
     SignupComponent,
     MenuComponent,
     AddToCartComponent,
-    AdminComponent
+    AdminComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    AdminUserComponent,
+    AdminOrderStatusComponent
   ],
   imports: [
     BrowserModule,

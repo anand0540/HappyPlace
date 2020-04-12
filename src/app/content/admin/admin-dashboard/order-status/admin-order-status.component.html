@@ -1,0 +1,71 @@
+<!-- <div class="container"> -->
+<!-- <div class="row"> -->
+
+<div class="parent">
+  <div>
+    
+    <table class="table table-hover">
+      <caption class="orderMenu--intro" style=" caption-side:top;  font-size: 34px; color: #dc3545">Orders</caption>
+      <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Payment Mode</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <!-- <a click="orderRead()"> -->
+            <!-- <tr  [attr.id]="user.id"
+            *ngFor="let user of list"
+              [ngStyle]="{'backgroundColor': orderMsgRead ? 'white' : 'yellow'} "
+              [(ngModel)]="!orderMsgRead"> -->
+              <tr [attr.id]="user.id"
+            *ngFor="let user of list">
+            <td> {{user.fullname}} </td>
+            <td> {{user.phone}} </td>
+            <td> {{user.email}} </td>
+            <td> {{user.address}} </td>
+            <td> {{user.payment}} </td>
+            <td> <a class="btn text-danger" (click)="orderRead(user.id)"><i class="fa fa-check-circle"></i></a> <a class="btn text-danger" (click)="deleteOrder(user.id)"> <i class="fa fa-trash"></i> </a></td>
+          </tr>
+        <!-- </a> -->
+
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <table class="table table-hover">
+      <caption class="orderMenu--intro" style=" caption-side:top ;font-size: 34px; color: #dc3545">Table Bookings
+      </caption>
+      <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Two Seater Table</th>
+        <th>Four Seater Table</th>
+        <th>Eight Seater Table</th>
+        <th>Actions</th>
+      </thead>
+      <tbody >
+        <tr  [attr.id]="user.id"
+            *ngFor="let user of bookingList"
+            >
+          <td> {{user.name}} </td>
+          <td> {{user.phone}} </td>
+          <td>{{user.email}}</td>
+          <td> {{user.date}} </td>
+          <td> {{user.twoSeater}} </td>
+          <td> {{user.fourSeater}} </td>
+          <td> {{user.eightSeater}} </td>
+          <td> <a class="btn text-danger" (click)="bookingRead(user.id)"><i class="fa fa-check-circle"></i></a> <a class="btn text-danger" (click)="deleteBooking(user.id)"> <i class="fa fa-trash"></i> </a> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- </div> -->
+<!-- </div> -->

@@ -14,13 +14,15 @@ export class DeliveryComponent implements OnInit {
 
   constructor(public userServ: UserService, private firestore: AngularFirestore, private toastr: ToastrService, private route: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.resetForm();
   }
   resetForm(form?:NgForm ){
     if(form!=null){
-      form.resetForm();}
+      form.resetForm();
+    }
       this.userServ.formdata={
+        id : null,
         name : '',
         phone: '',
         email : '',
@@ -30,9 +32,9 @@ export class DeliveryComponent implements OnInit {
    }
    onSubmit(form:NgForm ){
     let data = form.value;
-    this.firestore.collection('Users').add(data);
+    this.firestore.collection('Orders').add(data);
     this.resetForm(form);
     this.toastr.success("Order Placed Successfully" )
-    this.route.navigate(['/']);
+    this.route.navigate(['/user']);
 }
 }

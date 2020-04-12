@@ -21,23 +21,23 @@
 
             <div>
 
-                <input name=" fullname" #fullname="ngModel" [(ngModel)]="userServ.formdata.name" class="formbox"
+                <input name="fullname" #fullname="ngModel" [(ngModel)]="userServ.formdata.name" class="formbox"
                     style="margin: 10px 0;" placeholder="Name" required />
                 <div *ngIf="fullname.touched && fullname.invalid" class="reqfield">Mandatory Field</div>
             </div>
 
             <div>
-                <input name=" phone" #phone="ngModel" [(ngModel)]="userServ.formdata.phone" class="formbox"
+                <input name="phone" #phone="ngModel" [(ngModel)]="userServ.formdata.phone" class="formbox"
                 style="margin: 10px 0;" placeholder="Phone Number" required/>
                 <div *ngIf="phone.touched && phone.invalid" class="reqfield">Mandatory Field</div>
             </div>
             <div>
-                <input name=" email" #email="ngModel" [(ngModel)]="userServ.formdata.email" class="formbox"
+                <input name="email" #email="ngModel" [(ngModel)]="userServ.formdata.email" class="formbox"
                 style="margin: 10px 0;" placeholder="email" required/>
                 <div *ngIf="email.touched && email.invalid"class="reqfield">Mandatory Field</div>
             </div>
             <div>
-                <input name=" address" #address="ngModel" [(ngModel)]="userServ.formdata.address" class="formbox"
+                <input name="address" #address="ngModel" [(ngModel)]="userServ.formdata.address" class="formbox"
                 style="margin: 10px 0;" placeholder="ADDRESS" required />
                 <div *ngIf="address.touched && address.invalid"class="reqfield">Mandatory Field</div>
             </div>
