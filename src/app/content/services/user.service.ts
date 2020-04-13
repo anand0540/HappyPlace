@@ -1,4 +1,4 @@
-import { User, Table } from '../models/user.model';
+import {  Table, Order, UnresTable } from '../models/user.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -6,8 +6,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
      providedIn:'root'
 })
 export class UserService{
-     formdata: User;
+     formdata: Order;
      tableData: Table;
+     unresTableData: UnresTable;
    
      // adminLogin = new EventEmitter<boolean>();
      constructor(private firestore: AngularFirestore){}
@@ -19,4 +20,8 @@ export class UserService{
      getBooking(){
           return this.firestore.collection('Tables').snapshotChanges();
      }
+     getTables(){
+          return this.firestore.doc("RMMYsT84fXvKZZIoCUN2").valueChanges();
+       }
+ 
 }

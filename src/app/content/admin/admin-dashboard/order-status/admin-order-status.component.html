@@ -2,7 +2,59 @@
 <!-- <div class="row"> -->
 
 <div class="parent">
-  <div>
+  <div class="div1"> 
+      <div class="bookingheadingwrapper orderMenu--intro" style="font-size: 37px; color: #dc3545" >
+          Unreserved Table
+      </div>
+      <div id="bookingFormContainer" class="bookingForm__container">
+          <form #form="ngForm" (submit)="onSubmit(form)">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userServ.unresTableData.id">
+              <div class="form-margin">
+                  <span style="margin-left: 10px;color: grey">2-seater:</span>
+                  <span>  
+                      <select name="twoSeat" #twoSeat="ngModel" [(ngModel)]="userServ.unresTableData.twoSeat" type="number" style="margin-left: 30px">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                      </select>
+                  </span>
+              </div>
+              <div class="form-margin">
+                      <span style="margin-left: 10px;color: grey">4-seater:</span>
+                      <span>  
+                          <select name="fourSeat" #fourSeater="ngModel" [(ngModel)]="userServ.unresTableData.fourSeat" type="number" style="margin-left: 30px">
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                          </select>
+                      </span>
+                    
+                  </div>
+                  <div  class="form-margin">
+                          <span style="margin-left: 10px;color: grey">8-seater:</span>
+                          <span style="margin-left: 30px">  
+                              <select name="eightSeat" #eightSeater="ngModel" [(ngModel)]="userServ.unresTableData.eightSeat" type="number" >
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  
+                              </select>
+                          </span>
+                      </div>
+            <div>
+                  <button type="submit" class="btn btn-dark " style="margin:10% 0 10% 30% ;">Submit</button>
+              </div>
+          </form>
+      </div>
+  </div> 
+  <div class="div2">
     
     <table class="table table-hover">
       <caption class="orderMenu--intro" style=" caption-side:top;  font-size: 34px; color: #dc3545">Orders</caption>
@@ -35,7 +87,7 @@
     </table>
   </div>
 
-  <div>
+  <div class="div3">
     <table class="table table-hover">
       <caption class="orderMenu--intro" style=" caption-side:top ;font-size: 34px; color: #dc3545">Table Bookings
       </caption>
@@ -44,9 +96,9 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Date</th>
-        <th>Two Seater Table</th>
-        <th>Four Seater Table</th>
-        <th>Eight Seater Table</th>
+        <th>2-Seater</th>
+        <th>4-Seater</th>
+        <th>8-Seater</th>
         <th>Actions</th>
       </thead>
       <tbody >

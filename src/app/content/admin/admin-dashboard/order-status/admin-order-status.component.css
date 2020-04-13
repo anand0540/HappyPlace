@@ -1,12 +1,12 @@
-.parent {
+/* .parent {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 50px;
     margin-left: 100px;
     margin-right: 100px;
-    }
+    } */
     table,
 td {
   border: 1px solid #b4b4b8;
@@ -46,3 +46,15 @@ tr:hover {
   background-color: #eff7ff;
 } */
 
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 15px;
+  
+  }
+  
+  .div1 { grid-area: 1 / 1 / 2 / 2; }
+  .div2 { grid-area: 1 / 2 / 2 / 3; }
+  .div3 { grid-area: 2 / 2 / 3 / 3; }
