@@ -441,7 +441,7 @@ color: #000000;
 .btn-dm{
   position: absolute;
   left: 34px;
-  top: 255px;
+  top: 235px;
 }
 .or{
   font-family: Raleway;
@@ -505,7 +505,15 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     appearance: none;
     margin: 0;
 }
-
+input.ng-touched.ng-invalid{
+  border-color: #dc3545;
+}
+.reqfield{
+  margin-left: 53px;
+  color: #dc3545;
+  font-size:80%;
+  width: 100%;
+}
 /*==================================================BOOKING=========================================================*/
 
 .bookingbannerheadingwrapper{
@@ -571,6 +579,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     width: 200px;
     height: 15px; 
     outline: none;
+  }
+  .form-margin{
+    margin: 10px 0;
   }
 
 .griditemsall{

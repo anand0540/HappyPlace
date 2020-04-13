@@ -1,0 +1,31 @@
+<div class="loginwrapper">
+  <div class="maincard">
+    <div class="sH1">Happy Place</div>
+    <div class="sdetails" id="loginCard">
+      <form name="userform" method="post" #formCtrl="ngForm">
+
+        <input class="sEmail" type="email" name="email" placeholder="EMAIL" size="30" [(ngModel)]="user.email" required>
+        <br>
+        <input class="sPass" type="password" name="pass" placeholder="PASSWORD" size="30" [(ngModel)]="user.password"
+          required>
+        <br>
+        <button type="button" class="btn btn-dark btn-sm" [disabled]="formCtrl.form.invalid">Login</button>
+        <div class="or">
+          <hr class="orlineL"> OR
+          <hr class="orlineR">
+        </div>
+
+
+        <button class="btn btn-danger btn-dm " type="button" (click)="onSignWithGoogle()"><span><i
+              class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span> </button>
+        <button class="btn btn-primary" style=" position: absolute;top: 285px;left: 35px;" type="button"
+          (click)="onSignWithTwitter()"><span><i class="fa fa-twitter"></i></span><span> &nbsp;| Login with
+            Twitter</span> </button>
+
+        <br>
+        <a class="belowlogin" routerLink="/user/signup">Don't have an Account?<b> Sign Up</b> </a>
+      </form>
+
+    </div>
+  </div>
+</div>

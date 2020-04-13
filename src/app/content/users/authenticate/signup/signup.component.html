@@ -1,0 +1,42 @@
+<!-- <div class="back">
+
+    <div class="sign">
+    
+    <div class="sH1">My Restaurant</div> -->
+<div class="loginwrapper">
+    <div class="maincard">
+        <div class="sH1">Happy Place</div>
+        <div class="sdetails" id="signupCard">
+            <form name="userform" method="post" #formCtrl="ngForm">
+
+                <input class="sEmail" type="email" name="email" placeholder="email" [(ngModel)]="user.email" required><br>
+                <input class="sPass" type="password" name="pass" placeholder="Password" [(ngModel)]="user.password" required><br>
+                <!-- <input class="sconfirmPass" type="password" name="confirmPass" placeholder="Confirm Password"><br> -->
+                <input class="sconfirmPass" type="text" name="Name" placeholder="Name"><br>
+                <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" ><br>
+
+                <button type="button" class="btn btn-dark btn-sm" (click)="onSignUpRegular()" style="position: absolute !important;
+        top: 255px !important; ">SignUp</button>
+                <div class="or" style="position: absolute !important;
+        top: 300px !important; ">
+                    <hr class="orlineL"> OR
+                    <hr class="orlineR">
+                </div>
+
+
+                <button class="btn btn-danger btn-dm " type="button" (click)="onSignWithGoogle()" style="position: absolute !important;
+        top: 345px !important; "><span><i class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span>
+                </button>
+                <button class="btn btn-primary" style=" position: absolute;top: 395px;left: 35px;" type="button"
+                    (click)="onSignWithTwitter()">
+                    <span><i class="fa fa-twitter"></i></span><span> &nbsp;| Login with Twitter</span> </button>
+
+                <br>
+                <a class="belowlogin" routerLink="/user/login" style="position: absolute !important;
+        top: 450px !important; ">Already have an Account?<b> Log In</b> </a>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- </div>
+    </div> -->

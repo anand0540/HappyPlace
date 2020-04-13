@@ -1,0 +1,18 @@
+<div class="loginwrapper">
+    <div class="maincard">
+      <div class="sH1" style="margin-left: 40px ;">Admin</div>
+      <div class="sdetails" id="loginCard">
+        <form name="userform" method="post" #form="ngForm">
+  
+          <input class="sEmail" type="email" name="email" placeholder="EMAIL" size="30"  required>
+          <br>
+          <input class="sPass" type="password" name="pass" placeholder="PASSWORD" size="30" 
+            required>
+          <br>
+          <button type="button" class="btn btn-dark btn-sm" [disabled]="form.invalid">Login</button>
+
+        </form>
+  
+      </div>
+    </div>
+  </div>

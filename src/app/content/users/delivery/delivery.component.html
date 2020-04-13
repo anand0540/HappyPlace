@@ -1,0 +1,93 @@
+<div class="featuredboxwrapper">
+    <div class="bookingleftwrapper">
+        <div class="bookingbannerheadingwrapper">
+            Fast Food<br>Faster Delivery
+        </div>
+    </div>
+
+
+    <div class="rightwrapper">
+        <img src="assets/pinkphone.jpg" alt="yellow food bike" width=100%>
+    </div>
+
+
+</div>
+
+
+
+<div id="orderFormContainer" class="bookingForm__container">
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <div>
+
+            <div>
+
+                <input name="fullname" #fullname="ngModel" [(ngModel)]="userServ.formdata.name" class="formbox"
+                    style="margin: 10px 0;" placeholder="Name" required />
+                <div *ngIf="fullname.touched && fullname.invalid" class="reqfield">Mandatory Field</div>
+            </div>
+
+            <div>
+                <input name="phone" #phone="ngModel" [(ngModel)]="userServ.formdata.phone" class="formbox"
+                style="margin: 10px 0;" placeholder="Phone Number" required/>
+                <div *ngIf="phone.touched && phone.invalid" class="reqfield">Mandatory Field</div>
+            </div>
+            <div>
+                <input name="email" #email="ngModel" [(ngModel)]="userServ.formdata.email" class="formbox"
+                style="margin: 10px 0;" placeholder="email" required/>
+                <div *ngIf="email.touched && email.invalid"class="reqfield">Mandatory Field</div>
+            </div>
+            <div>
+                <input name="address" #address="ngModel" [(ngModel)]="userServ.formdata.address" class="formbox"
+                style="margin: 10px 0;" placeholder="ADDRESS" required />
+                <div *ngIf="address.touched && address.invalid"class="reqfield">Mandatory Field</div>
+            </div>
+            <div>
+                    <select name="payment" #payment="ngModel" [(ngModel)]="userServ.formdata.paymentType"  class="formbox" style="margin: 10px 0; height: 30px" >
+                            <option >Cash on Delivery</option>
+                            <br />
+                            <option >Online</option>
+                        </select>
+            <div *ngIf="payment.untouched">
+                Select Payment Type
+            </div>            
+            </div>
+          
+            <br />
+            <button type="submit" [disabled]="form.invalid" class="btn btn-dark" style="margin: 10px 60px;" >Submit</button>
+            <br />
+
+
+            <p id="error">
+                <!-- {{this.state.orderErrorVisible && this.state.orderErrorMessage}} -->
+            </p>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+<div class="navbarwrapper">
+    <div class="tophalfcontentwrapper">
+        <div class="topleftcontentwrapper"> </div>
+    </div>
+    <!-- <div class="bottomhalfcontentwrapper">
+        <div class="navbarlinkwrapper">
+
+            <a class="navbarlink" href="">
+                <span class="glyphicon glyphicon-earphone"></span> 9999999999
+            </a>
+
+            <a class="navbarlink" href=" ">
+                Minor Project
+            </a>
+
+            <a class="navbarlink" href=""><span class="glyphicon glyphicon-envelope">
+            </span> 
+            hi @ My Restaurant.com
+            </a>
+
+        </div>
+    </div> -->
+</div>

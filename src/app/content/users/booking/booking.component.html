@@ -1,0 +1,107 @@
+<div class="featuredboxwrapper">
+    <div class="rightwrapper">
+        <img src="assets/bookingbannerimage.jpg" alt="Pink Subtext Image" width=100%>
+    </div>
+    <div class="bookingleftwrapper">
+        <div class="bookingbannerheadingwrapper">
+            Join us ! <br>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="bookingwrapper">
+    <div class="bookingheadingwrapper">Tables Available Now</div>
+    <div class="bookinggridwrapper">
+        <img class="griditemsall" src="assets/2seater.png">
+        <img class="griditemsall" src="assets/4seater.png">
+        <img class="griditemsall" src="assets/8seater.png">
+        <div class="bookinggridwrapper">
+            <div class="griditemsmall"><span>{{twoSeat}} available</span></div>
+            <div class="griditemsmall"><span>{{fourSeat}} available</span></div>
+            <div class="griditemsmall"><span>{{eightSeat}} available</span></div>
+        </div>
+    </div>
+
+    <div class="bookingheadingwrapper">
+        Book Table For Later
+    </div>
+
+    <div id="bookingFormContainer" class="bookingForm__container">
+        <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+            <div>
+                <br>
+                <input name="name" #name="ngModel" [(ngModel)]="userServ.tableData.name" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'" class="formbox form-margin"/>
+            </div>
+            <div>
+                <input name="phone" #phone="ngModel" [(ngModel)]="userServ.tableData.phone" class="formbox form-margin" placeholder="MOBILE NUMBER" onfocus="this.placeholder=''"
+                    onblur="this.placeholder='MOBILE NUMBER'" type="phone" value="" 
+                    border-top=none; />
+            </div>
+            <div>
+                <input name="email" #phone="ngModel" [(ngModel)]="userServ.tableData.email" class="formbox form-margin" placeholder="EMAIL " onfocus="this.placeholder=''"
+                    onblur="this.placeholder=' EMAIL'" type="email"  />
+            </div>
+            <div>
+                <input name="date" #phone="ngModel" [(ngModel)]="userServ.tableData.date" placeholder="DATE" class="formbox form-margin" type="text" onfocus="(this.type='date')"
+                    onblur="if(!this.value)this.type='text'"   />
+
+
+            </div>
+            <div class="form-margin">
+                <span style="margin-left: 10px;color: grey">2-seater:</span>
+                <span>  
+                    <select name="twoSeater" #twoSeater="ngModel" [(ngModel)]="userServ.tableData.twoSeater" type="number" style="margin-left: 30px">
+                        <option value="0">Tables</option>
+    
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+    
+                    </select>
+                </span>
+              
+            </div>
+            <div class="form-margin">
+                    <span style="margin-left: 10px;color: grey">4-seater:</span>
+                    <span>  
+                        <select name="fourSeater" #fourSeater="ngModel" [(ngModel)]="userServ.tableData.fourSeater" type="number" style="margin-left: 30px">
+                            <option value="0">Tables</option>
+        
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+
+                        </select>
+                    </span>
+                  
+                </div>
+                <div  class="form-margin">
+                        <span style="margin-left: 10px;color: grey">8-seater:</span>
+                        <span style="margin-left: 30px">  
+                            <select name="eightSeater" #eightSeater="ngModel" [(ngModel)]="userServ.tableData.eightSeater" type="number" >
+                                <option value="0">Tables</option>
+            
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+
+                            </select>
+                        </span>
+                      
+                    </div>
+          
+           
+            <div>
+
+                <button type="submit" class="btn btn-dark " style="margin:10% 0 10% 30% ;">Submit</button>
+
+
+            </div>
+        </form>
+    </div>
+</div>
