@@ -9,6 +9,7 @@ export class UserService{
      formdata: Order;
      tableData: Table;
      unresTableData: UnresTable;
+     // @Output() sendOrder = new EventEmitter<Object>();
    
      // adminLogin = new EventEmitter<boolean>();
      constructor(private firestore: AngularFirestore){}

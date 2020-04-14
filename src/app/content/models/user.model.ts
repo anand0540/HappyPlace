@@ -16,6 +16,8 @@ export class Order {
      email: string;
      address : string; 
      paymentType: string;
+     order:string[];
+     total:number;
     
     }
 export class Table {

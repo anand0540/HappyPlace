@@ -433,6 +433,12 @@ color: #000000;
 
  
 }
+.btn-orange{
+  background: #CE5937;
+background: -moz-linear-gradient(left, #CE5937 0%, #C59F4D 100%);
+background: -webkit-linear-gradient(left, #CE5937 0%, #C59F4D 100%);
+background: linear-gradient(to right, #CE5937 0%, #C59F4D 100%);
+}
 .btn-sm{
   position: absolute;
   left: 101px;
@@ -650,14 +656,20 @@ input.ng-touched.ng-invalid{
 
 .bookingForm__container{
   width: 100%;
+  height: 30%;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  /* background-color: #1e1e1e;
+  background: #000000;
+background: -moz-radial-gradient(center, #000000 0%, #C5C3C4 100%);
+background: -webkit-radial-gradient(center, #000000 0%, #C5C3C4 100%);
+background: radial-gradient(ellipse at center, #000000 0%, #C5C3C4 100%); */
 }
 
 .bookingForm__Form--name{
-    border-top: none;
   border-left: none;
   border-right: none;
   outline: none;
@@ -1794,8 +1806,24 @@ margin-top: 5px;
     /* ==================================================ORDER MENU========================================== */
 .orderMenu {
 	display: flex;
-	justify-content: center;
-	align-self: center;
+	justify-content: left;
+  align-self: center;
+  margin-left: 200px;
+  /* border: 5px outset rgba(11,59,102,0.73); */
+
+  
+}
+.orderMenu-grid{
+  
+
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 27px;
+    grid-row-gap: 0px;
+    margin-right: 40px;
+
+    
 }
 .orderMenu--intro {
 	font-family: "Great Vibes";

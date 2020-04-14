@@ -3,10 +3,10 @@
 
 <div class="parent">
   <div class="div1"> 
-      <div class="bookingheadingwrapper orderMenu--intro" style="font-size: 37px; color: #dc3545" >
+      <div class="bookingheadingwrapper orderMenu--intro" style="font-size: 37px; color: #dc3545; margin: 50px 0 17px 0">
           Unreserved Table
       </div>
-      <div id="bookingFormContainer" class="bookingForm__container">
+      <div id="bookingFormContainer" class="bookingForm__container" >
           <form #form="ngForm" (submit)="onSubmit(form)">
             <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userServ.unresTableData.id">
               <div class="form-margin">
@@ -63,6 +63,8 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Address</th>
+        <th>Orders</th>
+        <th>Amount</th>
         <th>Payment Mode</th>
         <th>Actions</th>
       </thead>
@@ -78,6 +80,8 @@
             <td> {{user.phone}} </td>
             <td> {{user.email}} </td>
             <td> {{user.address}} </td>
+            <td> {{user.order}} </td>
+            <td> {{user.total}} </td>
             <td> {{user.payment}} </td>
             <td> <a class="btn text-danger" (click)="orderRead(user.id)"><i class="fa fa-check-circle"></i></a> <a class="btn text-danger" (click)="deleteOrder(user.id)"> <i class="fa fa-trash"></i> </a></td>
           </tr>

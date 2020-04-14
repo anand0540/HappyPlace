@@ -1,290 +1,311 @@
-<h3 class="orderMenu--intro">Order Menu</h3>
-				<div class="orderMenu">
-					<div class="orderMenu__container">
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/1.jpg"
-								alt="scallops"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">Scallops</h5>
-								<h6 class="orderMenu--item--info2">
-									Fish Sauce, Palm Sugar or soft Brown Sugar, Garlic, Ginger,
-									Mint
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹300</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-									class="orderMenu--item--buttonLess"
-								    (click)="decreaseQty(1)">
-									-
-								</button>
-								<!-- <button
+<h3  #orderintro class="orderMenu--intro">Order Menu</h3>
+<div class="orderMenu-grid">
+	<div class="orderMenu">
+		<div class="orderMenu__container">
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/1.jpg" alt="scallops" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">Scallops</h5>
+					<h6 class="orderMenu--item--info2">
+						Fish Sauce, Palm Sugar or soft Brown Sugar, Garlic, Ginger,
+						Mint
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹300</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(1)">
+						-
+					</button>
+					<!-- <button
 									class="orderMenu--item--buttonLess"
 									onClick={() => this.decreaseQty(1)}
 								>
 									-
 								</button> -->
-								<h6 class="orderMenu--item--h6">{{count[0]}}</h6>
-								<button
-									class="orderMenu--item--buttonMore"
-								    (click)="increaseQty(1)">
-									+
-								</button>
-								<!-- <button
+					<h6 class="orderMenu--item--h6">{{count[0]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(1)">
+						+
+					</button>
+					<!-- <button
 									class="orderMenu--item--buttonMore"
 									onClick={() => this.increaseQty(1)}
 								>
 									+
 								</button> -->
-							</div>
-						</div>
+				</div>
+			</div>
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/2.jpg"
-								alt="Chilli_chicken"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">Chilli Chicken</h5>
-								<h6 class="orderMenu--item--info2">
-									Boneless chicken, Chilli sauce, Soya sauce, Onion, Garlic,
-									Celery, Spring Onion and Freshly chopped Coriander for
-									garnish.
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹400</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(2)">
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/2.jpg" alt="Chilli_chicken" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">Chilli Chicken</h5>
+					<h6 class="orderMenu--item--info2">
+						Boneless chicken, Chilli sauce, Soya sauce, Onion, Garlic,
+						Celery, Spring Onion and Freshly chopped Coriander for
+						garnish.
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹400</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(2)">
 
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[1]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(2)">
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[1]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(2)">
 
-									+
-								</button>
-							</div>
-						</div>
+						+
+					</button>
+				</div>
+			</div>
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/3.jpg"
-								alt="Steak_tartare"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">Steak Tartare</h5>
-								<h6 class="orderMenu--item--info2">
-									Beef, Fillet Shallots, Cornichons, Nonpareille Capers,
-									Parsley, Egg
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹600</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(3)">
-								
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[2]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(3)">
-									+
-								</button>
-							</div>
-						</div>
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/3.jpg" alt="Steak_tartare" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">Steak Tartare</h5>
+					<h6 class="orderMenu--item--info2">
+						Beef, Fillet Shallots, Cornichons, Nonpareille Capers,
+						Parsley, Egg
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹600</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(3)">
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/4.jpg"
-								alt="Smoked_Salmon_Pancakes"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">
-									Smoked Salmon Pancakes
-								</h5>
-								<h6 class="orderMenu--item--info2">
-									Potato Pancakes with Smoked Salmon, Caviar and Dill Cream.
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹300</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(4)">
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[2]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(3)">
+						+
+					</button>
+				</div>
+			</div>
 
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[3]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(4)">
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/4.jpg" alt="Smoked_Salmon_Pancakes" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">
+						Smoked Salmon Pancakes
+					</h5>
+					<h6 class="orderMenu--item--info2">
+						Potato Pancakes with Smoked Salmon, Caviar and Dill Cream.
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹300</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(4)">
 
-									+
-								</button>
-							</div>
-						</div>
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[3]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(4)">
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/5.jpg"
-								alt="Strawberry_Fudge
-				"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">Strawberry Fudge</h5>
-								<h6 class="orderMenu--item--info2">
-									Strawberry frosting and White Chocolate chips
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹200</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(5)">
+						+
+					</button>
+				</div>
+			</div>
 
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[4]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(5)">
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/5.jpg" alt="Strawberry_Fudge
+				" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">Strawberry Fudge</h5>
+					<h6 class="orderMenu--item--info2">
+						Strawberry frosting and White Chocolate chips
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹200</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(5)">
 
-									+
-								</button>
-							</div>
-						</div>
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[4]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(5)">
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/6.jpg"
-								alt="Nutella_Mouse"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">Nutella Mouse</h5>
-								<h6 class="orderMenu--item--info2">
-									Nutella, Whipped cream, Brown Sugar, Dark Chocolate
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹200</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(6)">
+						+
+					</button>
+				</div>
+			</div>
 
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[5]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(6)">
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/6.jpg" alt="Nutella_Mouse" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">Nutella Mouse</h5>
+					<h6 class="orderMenu--item--info2">
+						Nutella, Whipped cream, Brown Sugar, Dark Chocolate
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹200</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(6)">
 
-									+
-								</button>
-							</div>
-						</div>
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[5]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(6)">
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/7.jpg"
-								alt="Homemade_Frozen_Yogurt"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">
-									Homemade Frozen Yogurt
-								</h5>
-								<h6 class="orderMenu--item--info2">
-									Heavy Whipped cream, all purpose flour, Eggs, Crushed
-									Pineapple, White Chocolate
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹150</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(7)">
+						+
+					</button>
+				</div>
+			</div>
 
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[6]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(7)">
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/7.jpg" alt="Homemade_Frozen_Yogurt" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">
+						Homemade Frozen Yogurt
+					</h5>
+					<h6 class="orderMenu--item--info2">
+						Heavy Whipped cream, all purpose flour, Eggs, Crushed
+						Pineapple, White Chocolate
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹150</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(7)">
 
-								
-									+
-								</button>
-							</div>
-						</div>
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[6]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(7)">
 
-						<div class="orderMenu--item">
-							<img
-								class="orderMenu--item--thumb"
-								src="assets/8.jpg"
-								alt="Rosses"
-							/>
-							<div class="orderMenu--item--info">
-								<h5 class="orderMenu--item--info1">
-									Red Roses and Champagne
-								</h5>
-								<h6 class="orderMenu--item--info2">
-									Champagne Wrapped in hundered Beautiful Red Roses.
-								</h6>
-							</div>
-							<h5 class="orderMenu--item--price">₹700</h5>
-							<div class="orderMenu--item--qtyContainer">
-								<button
-                                    class="orderMenu--item--buttonLess"
-                                    (click)="decreaseQty(8)">
 
-								
-									-
-								</button>
-								<h6 class="orderMenu--item--h6">{{count[7]}}</h6>
-								<button
-                                    class="orderMenu--item--buttonMore"
-                                    (click)="increaseQty(8)">
+						+
+					</button>
+				</div>
+			</div>
 
-								
-									+
-								</button>
-							</div>
-                        </div>
-                   
-                <div class="orderMenu__done">
-                        <h5 class="orderMenu__done--total">
-                            Total: ₹ {{total}}
-                        </h5>
-                    
-                    <button class="btn btn-dark" routerLink='/user/order'>
-                        Order
-                    </button>
-                </div>
-            </div>
-        </div>
-                <!-- <div className="orderMenu__done">
-                    {this.state.total > 0 && (
-                        <h5 className="orderMenu__done--total">
-                            Total: ₹{this.state.total / 100}
-                        </h5>
-                    )}
-                    <button className="blogin" onClick={this.orderMenuCompleted}>
-                        Order
-                    </button>
-                </div>
-            </div>
-        </div> -->
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" src="assets/8.jpg" alt="Rosses" />
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">
+						Red Roses and Champagne
+					</h5>
+					<h6 class="orderMenu--item--info2">
+						Champagne Wrapped in hundered Beautiful Red Roses.
+					</h6>
+				</div>
+				<h5 class="orderMenu--item--price">₹700</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(8)">
+
+
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[7]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(8)">
+
+
+						+
+					</button>
+				</div>
+			</div>
+
+			<div class="orderMenu__done">
+				<h5 class="orderMenu__done--total">
+					Total: ₹ {{total}}
+				</h5>
+
+				<button (click)="scroll(orderintro)"[disabled]="this.order.total==0" class="btn btn-dark" style="margin-left:14%">
+					Add to Cart
+				</button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!-- ***************************************************************************************************** -->
+
+
+
+
+
+
+	<!-- <div class="featuredboxwrapper">
+				<div class="bookingleftwrapper">
+					<div class="bookingbannerheadingwrapper">
+						Fast Food<br>Faster Delivery
+					</div>
+				</div>
+			
+			
+				<div class="rightwrapper">
+					<img src="assets/pinkphone.jpg" alt="yellow food bike" width=100%>
+				</div>
+			
+			
+			</div>
+			 -->
+
+	<div #orderForm class="bookingForm__container " style="  border: 5px outset rgba(221,75,57,0.9);border-radius: 20px;
+			justify-content:right;">
+		<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+			<div>
+
+				<div>
+
+					<input name="fullname" #fullname="ngModel" [(ngModel)]="userServ.formdata.name" class="formbox"
+						style="margin: 40px 0 20px 0;" placeholder="Name" required />
+					<div *ngIf="fullname.touched && fullname.invalid" class="reqfield">Mandatory Field</div>
+				</div>
+
+				<div>
+					<input name="phone" #phone="ngModel" [(ngModel)]="userServ.formdata.phone" class="formbox"
+						style="margin: 10px 0;" placeholder="Phone Number" required />
+					<div *ngIf="phone.touched && phone.invalid" class="reqfield">Mandatory Field</div>
+				</div>
+				<div>
+					<input name="email" #email="ngModel" [(ngModel)]="userServ.formdata.email" class="formbox"
+						style="margin: 10px 0;" placeholder="email" required />
+					<div *ngIf="email.touched && email.invalid" class="reqfield">Mandatory Field</div>
+				</div>
+				<div>
+					<input name="address" #address="ngModel" [(ngModel)]="userServ.formdata.address" class="formbox"
+						style="margin: 10px 0;" placeholder="ADDRESS" required />
+					<div *ngIf="address.touched && address.invalid" class="reqfield">Mandatory Field</div>
+				</div>
+				<!-- <div>
+							<input name="order"  class="formbox"
+							style="margin: 10px 0;" placeholder="some order" readonly  />
+						</div> -->
+				<!-- <div>
+								<textarea name="order" #order="ngModel" [(ngModel)]="userServ.formdata.order" rows="3" cols="30" form="form">
+										 </textarea>
+						</div> -->
+				<div>
+					<select name="payment" #payment="ngModel" [(ngModel)]="userServ.formdata.paymentType"
+						class="formbox" style="margin: 10px 0; height: 30px">
+						<option>Cash on Delivery</option>
+						<br />
+						<option>Online</option>
+					</select>
+					<div *ngIf="payment.untouched">
+						Select Payment Type
+					</div>
+				</div>
+				<br />
+				<div>
+					<div *ngIf="!this.orderFinalised" class="reqfield" style="margin-left: 10%"> Add to Cart to Continue</div>
+
+					<button type="submit" [disabled]="form.invalid || !this.orderFinalised "
+						class="btn btn-orange" style="margin: 10px 60px;">Order</button>
+
+				</div>
+				<br />
+
+
+				<!-- <p id="error">
+							{{this.state.orderErrorVisible && this.state.orderErrorMessage}}
+						</p> -->
+			</div>
+		</form>
+
+	</div>
+
+</div>
+
+
