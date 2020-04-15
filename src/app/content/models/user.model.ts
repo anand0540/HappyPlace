@@ -37,3 +37,8 @@ export class UnresTable{
      fourSeat: string;
      eightSeat: string;
 }
+export class Testimonial{
+     id:string;
+     name: string;
+     testimonial : string;
+}
