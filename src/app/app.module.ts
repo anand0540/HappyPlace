@@ -19,7 +19,6 @@ import { AdminLoginComponent } from './content/admin/admin-login/admin-login.com
 import { AdminDashboardComponent } from './content/admin/admin-dashboard/admin-dashboard.component';
 import { AdminUserComponent } from './content/admin/admin-dashboard/user-info/admin-user.component';
 import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order-status/admin-order-status.component';
-
 import { environment } from '../environments/environment';
 // import { AuthService } from './services/auth.service';
 import { UserService } from './content/services/user.service';
@@ -47,7 +46,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     AdminLoginComponent,
     AdminDashboardComponent,
     AdminUserComponent,
-    AdminOrderStatusComponent
+    AdminOrderStatusComponent,
   ],
   imports: [
     BrowserModule,

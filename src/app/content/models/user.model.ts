@@ -16,6 +16,8 @@ export class Order {
      email: string;
      address : string; 
      paymentType: string;
+     order:string[];
+     total:number;
     
     }
 export class Table {
@@ -34,4 +36,9 @@ export class UnresTable{
      twoSeat: string;
      fourSeat: string;
      eightSeat: string;
+}
+export class Testimonial{
+     id:string;
+     name: string;
+     testimonial : string;
 }

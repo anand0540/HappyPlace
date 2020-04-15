@@ -1,5 +1,5 @@
 <div class="pagewrapper">
-    <!-- <div class="navbarwrapper">
+  <!-- <div class="navbarwrapper">
       <div class="tophalfcontentwrapper">
         <div class="topleftcontentwrapper">
 
@@ -37,77 +37,106 @@
         </div>
       </div>
     </div> -->
-    <div class="featuredboxwrapper">
-      <div class="leftwrapper">
-        <div class="featuredheadingwrapper">
-          Today's Specials
-        </div>
-        <div class="featureddetailswrapper">
-          <div class="itemheading">Penne Pasta with Vodka Sauce</div>
-          <div class="details">Placeholder text about penne pasta  and what it is and other stuff and dietary info maybe.
-            Placeholder text about penne pasta and what it is and other stuff and dietary info maybe.</div>
-        </div>
-        <div class="featuredpricewrapper"><p> &#8377; 550 &nbsp;</p>
-        </div>
+  <div class="featuredboxwrapper">
+    <div class="leftwrapper">
+      <div class="featuredheadingwrapper">
+        Today's Specials
       </div>
-      <div class="rightwrapper">
-        <img src="assets/penne.jpeg" alt="Penne Pasta with Vodka Sauce" width=100%>
+      <div class="featureddetailswrapper">
+        <div class="itemheading">Penne Pasta with Vodka Sauce</div>
+        <div class="details">Placeholder text about penne pasta and what it is and other stuff and dietary info maybe.
+          Placeholder text about penne pasta and what it is and other stuff and dietary info maybe.</div>
+      </div>
+      <div class="featuredpricewrapper">
+        <p> &#8377; 550 &nbsp;</p>
       </div>
     </div>
-    <div class="testimonialswrapper">
-      <div class="testimonialsheadingwrapper">Testimonials</div>
-      <div class="gridwrapwrapper">
-        <div class="gridwrapper">
-          <div class="griditem">
-            <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
-            <div class="reviewtext">
-              <h6>Here is some review text.</h6>
-            </div>
-          </div>
-          <div class="griditem">
-            <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
-            <div class="reviewtext">
-              <h6>Here is some review text.</h6>
-            </div>
-          </div>
-          <div class="griditem">
-            <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
-            <div class="reviewtext">
-              <h6>Here is some review text.</h6>
-            </div>
-          </div>
-          <div class="griditem">
-            <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
-            <div class="reviewtext">
-              <h6>Here is some review text.</h6>
-            </div>
-          </div>
-          <div class="griditem">
-            <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
-            <div class="reviewtext">
-              <h6>Here is some review text.</h6>
-            </div>
-          </div>
-          <div class="griditem">
-            <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
-            <div class="reviewtext">
-              <h6>Here is some review text.</h6>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="rightwrapper">
+      <img src="assets/penne.jpeg" alt="Penne Pasta with Vodka Sauce" width=100%>
     </div>
-    <div class="finalwrapper">
-      <div class="bottomleftwrapper">
-        <iframe width=100% height="680px" src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;coord=28.6313827,77.2197924&amp;q=D%20block%2C%20Connaught%20Place%2C%20New%20Delhi+(My%20Restaurant)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html"></a></iframe>
-      </div>
-      <div class="bottomrightwrapper">
-          <!-- LightWidget WIDGET -->
-          <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/8b957057e118514f9b9c7b3b8b647a15.html"
-            scrolling="no" allowtransparency="true" class="lightwidget-widget" width="100%" height="580px"></iframe>
+  </div> 
   
+  <div class="testimonialswrapper">
+    <div class="testimonialsheadingwrapper">Testimonials</div>
+    <div class="gridwrapwrapper">
+      <div class="gridwrapper">
+        <div *ngFor="let test of testimonialList">
+        <div class="griditem">
+          <img class="reviewavatar" src="assets/joey.jpeg" alt="{{test.name}}">
+          <div class="reviewtext" style=" text-align: center;">
+            <h4 style="color: rgba(221, 204, 51, 0.808); text-align:center">{{test.name}} says: </h4> &nbsp;
+            <p>  {{test.testimonial}}</p>
+          </div>
         </div>
+      </div>
+        <!-- <div class="griditem">
+          <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
+          <div class="reviewtext">
+            <h6>Here is some review text.</h6>
+          </div>
+        </div>
+        <div class="griditem">
+          <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
+          <div class="reviewtext">
+            <h6>Here is some review text.</h6>
+          </div>
+        </div>
+        <div class="griditem">
+          <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
+          <div class="reviewtext">
+            <h6>Here is some review text.</h6>
+          </div>
+        </div>
+        <div class="griditem">
+          <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
+          <div class="reviewtext">
+            <h6>Here is some review text.</h6>
+          </div>
+        </div>
+        <div class="griditem">
+          <img class="reviewavatar" src="assets/joey.jpeg" alt="Review Avatar">
+          <div class="reviewtext">
+            <h6>Here is some review text.</h6>
+          </div>
+        </div> -->
+      </div>
     </div>
-   
+    <!-- <div style="width:100%; height: 2px; background-color: grey"></div> -->
+    <div class="test-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div style="margin: 40px 0 20px 570px;">
 
+          <input name="name" #name="ngModel" [(ngModel)]="userServ.testimonialData.name" class="formbox" style="border-radius: 5px;"
+             placeholder="Name" required />
+          <div *ngIf="name.touched && name.invalid" class="reqfield">Mandatory Field</div>
+        </div>
+        <div style="margin: 10px 20px">
+          <textarea  rows="4" cols="150" name="testimonial" #testimonial="ngModel" [(ngModel)]="userServ.testimonialData.testimonial" placeholder="Take some time to share your experience" required></textarea>
+          <div *ngIf="testimonial.touched && testimonial.invalid" class="reqfield" style="margin-left:620px">Mandatory Field</div>
+
+        </div>
+        <div>
+          <button type="submit" class="btn btn-dark" style="margin: 40px 0 20px 570px">Share your experience</button>
+        </div>
+
+      </form>
+    </div>
   </div>
+  <div class="finalwrapper">
+    <div class="bottomleftwrapper">
+      <iframe width=100% height="680px"
+        src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;coord=28.6313827,77.2197924&amp;q=D%20block%2C%20Connaught%20Place%2C%20New%20Delhi+(My%20Restaurant)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a
+          href="https://www.maps.ie/coordinates.html"></a></iframe>
+    </div>
+    <div class="bottomrightwrapper">
+      <!-- LightWidget WIDGET -->
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
+        src="//lightwidget.com/widgets/8b957057e118514f9b9c7b3b8b647a15.html" scrolling="no" allowtransparency="true"
+        class="lightwidget-widget" width="100%" height="580px"></iframe>
+
+    </div>
+  </div>
+
+
+</div>

@@ -52,7 +52,7 @@ tr:hover {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 15px;
-  
+  margin: 0 30px;
   }
   
   .div1 { grid-area: 1 / 1 / 2 / 2; }
