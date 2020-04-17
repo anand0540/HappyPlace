@@ -20,6 +20,8 @@ import { AdminLoginComponent } from './content/admin/admin-login/admin-login.com
 import { AdminDashboardComponent } from './content/admin/admin-dashboard/admin-dashboard.component';
 import { AdminUserComponent } from './content/admin/admin-dashboard/user-info/admin-user.component';
 import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order-status/order-status.component';
+import { TodaySpecialComponent } from './content/admin/admin-dashboard/today-special/today-special.component';
+import { UsersComponent } from './content/users/users.component';
 import { environment } from '../environments/environment';
 // import { AuthService } from './services/auth.service';
 import { UserService } from './content/services/user.service';
@@ -32,8 +34,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {AngularFireStorageModule, BUCKET} from '@angular/fire/storage'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { TodaySpecialComponent } from './content/admin/admin-dashboard/today-special/today-special.component';
-import { UsersComponent } from './content/users/users.component';
 
 @NgModule({
   declarations: [

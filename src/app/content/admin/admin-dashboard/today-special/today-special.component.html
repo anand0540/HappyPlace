@@ -3,7 +3,7 @@
 
         <blockquote class="blockquote">
             <p class="mb-0 display-4" style="font-family: 'Great Vibes';font-size: 37px; color: #dc3545;margin-top: 20px; margin-left: 70px;">Today's Special</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
         </blockquote>
         <div class="card" style="width:25rem">
             <div class="card-body">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" formControlName="description"></textarea>
-                        <div class="text-danger" *ngIf="isSubmitted && formControls.description.errors?.required "style="margin-left: 66px"> Please provide the Description</div>
+                        <div class="text-danger" *ngIf="isSubmitted && formControls.description.errors?.required "style="margin-left: 66px" placeholder=" Please provide the Description "> </div>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success float-right" type="submit">Submit</button>
