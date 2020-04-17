@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   testimonialList : Testimonial[];
   count:number;
   todayList : any[];
-  element1: {}
-
+  length:number = 0;
   constructor(public userServ: UserService,
               private firestore: AngularFirestore,
               private elRef: ElementRef,
@@ -23,10 +22,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.userServ.imgDetailList.snapshotChanges().subscribe((list)=>{
+      this.length = (list.length -1);
+      console.log(this.length);
+      
       this.todayList = list.map((res)=>{
         return res.payload.val(); 
       })
-      this.element1 = this.todayList[0];
+      // this.element1 = this.todayList[0];
       // console.log(this.todayList);
       // console.log(typeof(this.element1));
       

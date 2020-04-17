@@ -43,15 +43,15 @@
         Today's Specials
       </div>
       <div class="featureddetailswrapper">
-        <div class="itemheading">{{todayList[0].caption}}</div>
-        <div class="details"> {{todayList[0].description}} </div>
+        <div class="itemheading">{{todayList[length].caption}}</div>
+        <div class="details"> {{todayList[length].description}} </div>
       </div>
       <div class="featuredpricewrapper">
-        <p> &#8377; {{todayList[0].amount}} &nbsp;</p>
+        <p> &#8377; {{todayList[length].amount}} &nbsp;</p>
       </div>
     </div>
     <div class="rightwrapper">
-      <img [src]="todayList[0].imageUrl" alt="Penne Pasta with Vodka Sauce" width=100%>
+      <img [src]="todayList[length].imageUrl" [alt]="todayList[length].caption" width=100%>
     </div>
   </div> 
   
