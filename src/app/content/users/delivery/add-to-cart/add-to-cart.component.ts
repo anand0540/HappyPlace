@@ -118,7 +118,7 @@ export class AddToCartComponent implements OnInit {
 		this.firestore.collection('Orders').add(data);
 		this.resetForm(form);
 		this.toastr.success("Order Placed Successfully" )
-		this.router.navigate(['/user']);
+		this.router.navigate(['/users']);
 	}
 	scroll(el: HTMLElement) {
 		el.scrollIntoView();

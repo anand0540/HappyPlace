@@ -37,22 +37,21 @@
         </div>
       </div>
     </div> -->
-  <div class="featuredboxwrapper">
+  <div *ngIf="todayList" class="featuredboxwrapper">
     <div class="leftwrapper">
       <div class="featuredheadingwrapper">
         Today's Specials
       </div>
       <div class="featureddetailswrapper">
-        <div class="itemheading">Penne Pasta with Vodka Sauce</div>
-        <div class="details">Placeholder text about penne pasta and what it is and other stuff and dietary info maybe.
-          Placeholder text about penne pasta and what it is and other stuff and dietary info maybe.</div>
+        <div class="itemheading">{{todayList[0].caption}}</div>
+        <div class="details"> {{todayList[0].description}} </div>
       </div>
       <div class="featuredpricewrapper">
-        <p> &#8377; 550 &nbsp;</p>
+        <p> &#8377; {{todayList[0].amount}} &nbsp;</p>
       </div>
     </div>
     <div class="rightwrapper">
-      <img src="assets/penne.jpeg" alt="Penne Pasta with Vodka Sauce" width=100%>
+      <img [src]="todayList[0].imageUrl" alt="Penne Pasta with Vodka Sauce" width=100%>
     </div>
   </div> 
   

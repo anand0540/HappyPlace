@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './content/users/home/home.component';
@@ -18,7 +19,7 @@ import { AdminComponent } from './content/admin/admin.component';
 import { AdminLoginComponent } from './content/admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './content/admin/admin-dashboard/admin-dashboard.component';
 import { AdminUserComponent } from './content/admin/admin-dashboard/user-info/admin-user.component';
-import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order-status/admin-order-status.component';
+import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order-status/order-status.component';
 import { environment } from '../environments/environment';
 // import { AuthService } from './services/auth.service';
 import { UserService } from './content/services/user.service';
@@ -28,10 +29,15 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {AngularFireStorageModule, BUCKET} from '@angular/fire/storage'
+import {AngularFireDatabaseModule} from '@angular/fire/database'
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { TodaySpecialComponent } from './content/admin/admin-dashboard/today-special/today-special.component';
+import { UsersComponent } from './content/users/users.component';
 
 @NgModule({
   declarations: [
+    UsersComponent,
     AppComponent,
     HomeComponent,
     AboutComponent,
@@ -47,15 +53,19 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     AdminDashboardComponent,
     AdminUserComponent,
     AdminOrderStatusComponent,
+    TodaySpecialComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     ToastrModule.forRoot()
   ],
   providers: [ UserService ],

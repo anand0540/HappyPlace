@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-order-status',
-  templateUrl: './admin-order-status.component.html',
-  styleUrls: ['./admin-order-status.component.css']
+  templateUrl: './order-status.component.html',
+  styleUrls: ['./order-status.component.css']
 })
 export class AdminOrderStatusComponent implements OnInit {
   list: Order[];

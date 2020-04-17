@@ -13,12 +13,25 @@ import { Testimonial } from '../../models/user.model';
 export class HomeComponent implements OnInit {
   testimonialList : Testimonial[];
   count:number;
+  todayList : any[];
+  element1: {}
+
   constructor(public userServ: UserService,
               private firestore: AngularFirestore,
               private elRef: ElementRef,
               private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.userServ.imgDetailList.snapshotChanges().subscribe((list)=>{
+      this.todayList = list.map((res)=>{
+        return res.payload.val(); 
+      })
+      this.element1 = this.todayList[0];
+      // console.log(this.todayList);
+      // console.log(typeof(this.element1));
+      
+      
+    })
     this.resetForm();
     this.userServ.getTestimonial().subscribe((arr)=>{
         this.testimonialList = arr.map((el)=>{
