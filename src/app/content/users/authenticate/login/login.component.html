@@ -1,29 +1,32 @@
 <div class="loginwrapper">
-  <div class="maincard">
+  <div class="maincard" style="transform: translateY(-20%);">
     <div class="sH1">Happy Place</div>
     <div class="sdetails" id="loginCard">
-      <form name="userform" method="post" #formCtrl="ngForm">
+      <form name="userform" #formCtrl="ngForm">
 
-        <input class="sEmail" type="email" name="email" placeholder="EMAIL" size="30" [(ngModel)]="user.email" required>
+        <input class="sEmail" type="email" name="email" placeholder="EMAIL" size="30" #userName required>
         <br>
-        <input class="sPass" type="password" name="pass" placeholder="PASSWORD" size="30" [(ngModel)]="user.password"
-          required>
+        <input class="sPass" type="password" name="pass" placeholder="PASSWORD" size="30" #userPassword required>
         <br>
-        <button type="button" class="btn btn-dark btn-sm" [disabled]="formCtrl.form.invalid">Login</button>
+        <button type="button" class="btn btn-dark btn-sm" [disabled]="formCtrl.form.invalid" (click)="authServ.SignIn(userName.value, userPassword.value)">Login</button>
+        <div class="forgotPassword">
+            <span style=" cursor:pointer;" routerLink="/users/forgot">Forgot Password?</span>
+          </div>
+     
         <div class="or">
           <hr class="orlineL"> OR
           <hr class="orlineR">
         </div>
 
 
-        <button class="btn btn-danger btn-dm " type="button" (click)="onSignWithGoogle()"><span><i
+        <button class="btn btn-danger btn-dm " type="button" (click)="authServ.GoogleAuth()"><span><i
               class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span> </button>
-        <button class="btn btn-primary" style=" position: absolute;top: 285px;left: 35px;" type="button"
+        <!-- <button class="btn btn-primary" style=" position: absolute;top: 285px;left: 35px;" type="button"
           (click)="onSignWithTwitter()"><span><i class="fa fa-twitter"></i></span><span> &nbsp;| Login with
-            Twitter</span> </button>
+            Twitter</span> </button> -->
 
         <br>
-        <a class="belowlogin" routerLink="/user/signup">Don't have an Account?<b> Sign Up</b> </a>
+        <a class="belowlogin" routerLink= "/users/signup" >Don't have an Account?<b> Sign Up</b> </a>
       </form>
 
     </div>

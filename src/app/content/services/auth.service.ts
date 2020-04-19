@@ -1,6 +1,6 @@
 
-import { Injectable, NgZone } from '@angular/core';
-import { User } from "../models/user.model";
+import { Injectable, NgZone, Output, EventEmitter } from '@angular/core';
+import { User, Admin } from "../models/user.model";
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 
 export class AuthService {
   userData: any; // Save logged in user data
-
+  adminData: any;
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -31,6 +31,16 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user'));
       }
     })
+    this.afAuth.authState.subscribe(admin =>{
+      if (admin) {
+        this.adminData = admin;
+        localStorage.setItem('admin', JSON.stringify(this.adminData));
+        JSON.parse(localStorage.getItem('admin'));
+      } else {
+        localStorage.setItem('admin', null);
+        JSON.parse(localStorage.getItem('admin'));
+      }
+    })
   }
 
   // Sign in with email/password
@@ -38,14 +48,24 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/users/home']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
   }
-
+  adminSignIn(email, password) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/admin/dashboard']);
+        });
+        this.SetAdminData(result.user);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
+  }
   // Sign up with email/password
   SignUp(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -53,17 +73,30 @@ export class AuthService {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
+        this.router.navigate(['/users/verify-email']);
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
+  }
+  adminSignup(email, password){
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    .then((result) => {
+      /* Call the SendVerificaitonMail() function when new user sign 
+      up and returns promise */
+      this.SendVerificationMail();
+      this.router.navigate(['/admin/dahboard']);
+      this.SetAdminData(result.user);
+    }).catch((error) => {
+      window.alert(error.message)
+    })
   }
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
     .then(() => {
-      this.router.navigate(['verify-email-address']);
+      this.router.navigate(['/users/verify-email']);
     })
   }
 
@@ -72,6 +105,7 @@ export class AuthService {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
       window.alert('Password reset email sent, check your inbox.');
+      this.router.navigate(['/users/home']);
     }).catch((error) => {
       window.alert(error)
     })
@@ -81,6 +115,11 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
+  }
+  get adminisLoggedIn() : boolean{
+    const admin = JSON.parse(localStorage.getItem('admin'));
+    return (admin !== null) ? true : false;
+ 
   }
 
   // Sign in with Google
@@ -93,7 +132,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/users/home']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
@@ -117,84 +156,33 @@ export class AuthService {
       merge: true
     })
   }
+  SetAdminData(admin){
+    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`admins/${admin.uid}`);
+    const adminData: Admin = {
+      uid: admin.uid,
+      email: admin.email,
+      name: admin.name,
+      photoURL: admin.photoURL,
+      emailVerified: admin.emailVerified
+    }
+    return adminRef.set(adminData, {
+      merge: true
+    })
+  }
 
   // Sign out 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['/users/home']);
+    })
+  }
+  adminSignOut(){
+    return this.afAuth.auth.signOut().then(() => {
+      localStorage.removeItem('admin');
+      this.router.navigate(['/admin/login']);
     })
   }
 }
 
-
-// // @Injectable({
-// //   providedIn: 'root'
-// // })
-
-
-// import { Injectable, Output, EventEmitter } from '@angular/core';
-// import { Router } from "@angular/router";
-// import { AngularFireAuth } from 'angularfire2/auth';
-// import * as firebase from 'firebase/app';
-// import { Observable } from 'rxjs';
-// @Injectable()
-// export class AuthService {
-
-//   private user: Observable<firebase.User>;
-//   private userDetails: firebase.User = null;
-//   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
-//     this.user = _firebaseAuth.authState;
-//     this.user.subscribe(
-//       (user) => {
-//         if (user) {
-//           this.userDetails = user;
-//           console.log(this.userDetails);
-//         }
-//         else {
-//           this.userDetails = null;
-//         }
-//       }
-//     );
-//   }
-//   signInRegular(email, password) {
-//     const credential = firebase.auth.EmailAuthProvider.credential( email, password );
-//  return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
-//  }
-//  signUpRegular(email, password){
-//     this._firebaseAuth.auth.createUserWithEmailAndPassword(email, password)
-//     .then(res => {
-//     console.log('You are Successfully signed up!', res);
-//     })
-//     .catch(error => {
-//     console.log('Something is wrong:', error.message);
-//     });
-//   } 
-//   signInWithTwitter() {
-//     return this._firebaseAuth.auth.signInWithPopup(
-//       new firebase.auth.TwitterAuthProvider()
-//     )
-//   }
-//   // signInWithFacebook() {
-//   //   return this._firebaseAuth.auth.signInWithPopup(
-//   //     new firebase.auth.FacebookAuthProvider()
-//   //   )
-//   // }
-//   signInWithGoogle() {
-//     return this._firebaseAuth.auth.signInWithPopup(
-//       new firebase.auth.GoogleAuthProvider()
-//     )
-//   }
-//   isLoggedIn() {
-//     if (this.userDetails == null) {
-//       return false;
-//     } else {
-//       return true;
-//     }
-//   }
-//   logout() {
-//     this._firebaseAuth.auth.signOut()
-//       .then((res) => this.router.navigate(['/']));
-//   }
-// }
 

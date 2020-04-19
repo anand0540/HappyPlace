@@ -4,18 +4,22 @@
     
     <div class="sH1">My Restaurant</div> -->
 <div class="loginwrapper">
-    <div class="maincard">
+    <div class="maincard" style="margin: 10% auto;transform: translateY(-20%)">
         <div class="sH1">Happy Place</div>
         <div class="sdetails" id="signupCard">
-            <form name="userform" method="post" #formCtrl="ngForm">
+            <form name="userform"  #formCtrl="ngForm" autocomplete="off">
 
-                <input class="sEmail" type="email" name="email" placeholder="email" [(ngModel)]="user.email" required><br>
-                <input class="sPass" type="password" name="pass" placeholder="Password" [(ngModel)]="user.password" required><br>
+                <input class="sEmail" type="email" name="email" placeholder="email" style="position: absolute !important;
+                top: 0%;left: -14%" #userEmail required><br>
+                <input class="sPass" type="password" name="pass" placeholder="Password" style="position: absolute !important;
+                top: 25%;left: -14%" #userPwd required><br>
                 <!-- <input class="sconfirmPass" type="password" name="confirmPass" placeholder="Confirm Password"><br> -->
-                <input class="sconfirmPass" type="text" name="Name" placeholder="Name"><br>
-                <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" ><br>
+                <input class="sconfirmPass" type="text" name="Name" placeholder="Name" style="position: absolute !important;
+                top: 50%;left: -14%"><br>
+                <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" style="position: absolute !important;
+                top: 75%;left: -14%"><br>
 
-                <button type="button" class="btn btn-dark btn-sm" (click)="onSignUpRegular()" style="position: absolute !important;
+                <button type="button" class="btn btn-dark btn-sm" (click)="authService.SignUp(userEmail.value, userPwd.value)" style="position: absolute !important;
         top: 255px !important; ">SignUp</button>
                 <div class="or" style="position: absolute !important;
         top: 300px !important; ">
@@ -24,15 +28,15 @@
                 </div>
 
 
-                <button class="btn btn-danger btn-dm " type="button" (click)="onSignWithGoogle()" style="position: absolute !important;
+                <button class="btn btn-danger btn-dm " type="button"(click)="authService.GoogleAuth()" style="position: absolute !important;
         top: 345px !important; "><span><i class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span>
                 </button>
-                <button class="btn btn-primary" style=" position: absolute;top: 395px;left: 35px;" type="button"
+                <!-- <button class="btn btn-primary" style=" position: absolute;top: 395px;left: 35px;" type="button"
                     (click)="onSignWithTwitter()">
-                    <span><i class="fa fa-twitter"></i></span><span> &nbsp;| Login with Twitter</span> </button>
+                    <span><i class="fa fa-twitter"></i></span><span> &nbsp;| Login with Twitter</span> </button> -->
 
                 <br>
-                <a class="belowlogin" routerLink="/user/login" style="position: absolute !important;
+                <a class="belowlogin" routerLink="/users/login" style="position: absolute !important;
         top: 450px !important; ">Already have an Account?<b> Log In</b> </a>
             </form>
         </div>

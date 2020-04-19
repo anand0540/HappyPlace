@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order
 import { TodaySpecialComponent } from './content/admin/admin-dashboard/today-special/today-special.component';
 import { UsersComponent } from './content/users/users.component';
 import { environment } from '../environments/environment';
-// import { AuthService } from './services/auth.service';
+import { AuthService } from './content/services/auth.service';
 import { UserService } from './content/services/user.service';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -34,6 +34,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {AngularFireStorageModule, BUCKET} from '@angular/fire/storage'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { ForgotPasswordComponent } from './content/users/authenticate/forgot-password/forgot-password.component';
+import { UserProfileComponent } from './content/users/user-profile/user-profile.component';
+import { VerifyEmailComponent } from './content/users/authenticate/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -54,9 +57,13 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     AdminUserComponent,
     AdminOrderStatusComponent,
     TodaySpecialComponent,
+    ForgotPasswordComponent,
+    UserProfileComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
+    MatProgressSpinnerModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -68,7 +75,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     AngularFireDatabaseModule,
     ToastrModule.forRoot()
   ],
-  providers: [ UserService ],
+  providers: [ UserService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

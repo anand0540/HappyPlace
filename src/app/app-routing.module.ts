@@ -16,6 +16,12 @@ import { AdminUserComponent } from './content/admin/admin-dashboard/user-info/ad
 import { AdminOrderStatusComponent } from './content/admin/admin-dashboard/order-status/order-status.component';
 import { TodaySpecialComponent } from './content/admin/admin-dashboard/today-special/today-special.component';
 import { UsersComponent } from './content/users/users.component';
+import { ForgotPasswordComponent } from './content/users/authenticate/forgot-password/forgot-password.component';
+import { AuthGuard } from './shared/guard/auth.guard';
+import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
+import { UserProfileComponent } from './content/users/user-profile/user-profile.component';
+import { VerifyEmailComponent } from './content/users/authenticate/verify-email/verify-email.component';
+import { AdminAuthGuard } from './shared/guard/admin-auth.guard';
 
 
 
@@ -27,13 +33,16 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'booking', component: BookingComponent },
-      { path: 'delivery', component: AddToCartComponent },
-      { path: 'order', component: DeliveryComponent },
+      { path: 'booking', component: BookingComponent, canActivate: [AuthGuard] },
+      { path: 'delivery', component: AddToCartComponent,canActivate: [AuthGuard] },
+      // { path: 'order', component: DeliveryComponent },
       { path: 'menu', component: MenuComponent },
-      { path: 'contact', component: ContactComponent },
-      { path: 'signup', component: SignupComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+      { path: 'signup', component: SignupComponent,canActivate: [SecureInnerPagesGuard] },
+      { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
+      { path: 'forgot', component: ForgotPasswordComponent,canActivate: [SecureInnerPagesGuard] },
+      { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuard] },
+      { path: 'verify-email', component: VerifyEmailComponent,canActivate: [SecureInnerPagesGuard] }
     ]
   },
 
@@ -41,9 +50,9 @@ const routes: Routes = [
     path: 'admin', component: AdminComponent,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: AdminLoginComponent },
+      { path: 'login', component: AdminLoginComponent},
       {
-        path: 'dashboard', component: AdminDashboardComponent,
+        path: 'dashboard', component: AdminDashboardComponent,canActivate: [AdminAuthGuard],
         children: [
           { path: '', redirectTo: 'order', pathMatch: 'full' },
           { path: 'user', component: AdminUserComponent },

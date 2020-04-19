@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/content/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,25 +17,12 @@ export class LoginComponent implements OnInit {
 
  
  
-  constructor( private router: Router) { }
+  constructor( private router: Router,public authServ: AuthService) { }
 
   ngOnInit() {
   }
-  onSignWithEmail(){
-    // this.authSer.signInRegular(this.user.email, this.user.password)
-    //   .then((res) => {
-    //      console.log(res);
-   
-    //      this.router.navigate(['/about']);
-    //   })
-    //   .catch((err) => console.log('error: ' + err));
-}
+ 
+    
   
-  onSignWithTwitter(){
-    // this.authSer.signInWithTwitter();
-  }
-  onSignWithGoogle(){
-    // this.authSer.signInWithGoogle();
-  }
 
 }

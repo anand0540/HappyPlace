@@ -37,6 +37,8 @@
         </div>
       </div>
     </div> -->
+    <mat-spinner style="margin:0 auto;" color="warn" *ngIf="!todayList" ></mat-spinner>
+
   <div *ngIf="todayList" class="featuredboxwrapper">
     <div class="leftwrapper">
       <div class="featuredheadingwrapper">
@@ -54,7 +56,8 @@
       <img [src]="todayList[length].imageUrl" [alt]="todayList[length].caption" width=100%>
     </div>
   </div> 
-  
+  <mat-spinner style="margin:0 auto;" color="warn" *ngIf="!testimonialList" ></mat-spinner>
+
   <div class="testimonialswrapper">
     <div class="testimonialsheadingwrapper">Testimonials</div>
     <div class="gridwrapwrapper">

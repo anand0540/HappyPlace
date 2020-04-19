@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/content/services/auth.service';
 // import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,28 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  user = {
-    email: '',
-    password: '',
-    confirmPass: '',
-    name: '',
-    mobile: ''
- };
-  constructor() { }
+//   user = {
+//     email: '',
+//     password: '',
+//     confirmPass: '',
+//     name: '',
+//     mobile: ''
+//  };
+  constructor(    public authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-  onSignUpRegular(){
-    console.log(this.user.name);
-    console.log(this.user.mobile);
-
-    
-    // this.authSer.signUpRegular(this.user.email,this.user.password);
-  }
-  onSignWithTwitter(){
-    // this.authSer.signInWithTwitter();
-  }
-  onSignWithGoogle(){
-    // this.authSer.signInWithGoogle();
-  }
+ 
 }

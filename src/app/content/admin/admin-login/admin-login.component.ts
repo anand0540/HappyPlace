@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Action } from '@angular/fire/firestore/interfaces';
 import { Router } from '@angular/router';
 import { browserRefresh } from '../../../app.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,7 +11,7 @@ import { browserRefresh } from '../../../app.component';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-constructor(){}
+constructor(public authService: AuthService){}
 ngOnInit(){
   
 }

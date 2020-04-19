@@ -1,25 +1,17 @@
-<div>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">User Profile</h1>
-          </div>
-          <!-- Show user data when logged in -->
-          <div class="row" >
-            <div class="col-md-12">
-              <div class="media">
-                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src=""
-                  alt="">
-                <div class="media-body">
-                  <h1>Hello: <strong></strong></h1>
-                  <p>User ID: <strong></strong></p>
-                  <p>Email: <strong></strong></p>
-                  <p>Email Verified: <strong></strong></p>
-                </div>
+
+            <h1 style="text-align: center; margin-top: 5%; font-family: 'Great Vibes'; color: #dc3545 ;">User Profile</h1>
+            <!-- <mat-spinner style="margin:0 auto;" color="warn" *ngIf="userInfo" ></mat-spinner> -->
+          <div class="container-profile" *ngIf="authService.userData"  >
+            
+              <div class="div-img">
+                <img class="dp" src="{{(authService.adminData.photoURL) ? authService.adminData.photoURL : '../../../../../assets/dummy-user.jpeg'}}"
+                  alt="{{authService.adminData.name}}">
               </div>
+                <div class="div-profile">
+                  <h4 class="fonts">Hello: <strong>{{(authService.adminData.name) ? authService.adminData.name : 'Admin'}}</strong></h4>
+                  <p>User ID: <strong>{{authService.adminData.uid}}</strong></p>
+                  <p>Email: <strong>{{authService.adminData.email}}</strong></p>
+                  <p>Email Verified: <strong>{{authService.adminData.emailVerified}}</strong></p>
+                </div>
             </div>
-          </div>
   
-        </div>
-      </main>
-</div>

@@ -2,17 +2,57 @@
     <div class="maincard">
       <div class="sH1" style="margin-left: 40px ;">Admin</div>
       <div class="sdetails" id="loginCard">
-        <form name="userform" method="post" #form="ngForm">
+        <form name="userform"  #form="ngForm">
   
-          <input class="sEmail" type="email" name="email" placeholder="EMAIL" size="30"  required>
+          <input class="sEmail" type="email" name="email" placeholder="EMAIL" size="30" #userName  required>
           <br>
-          <input class="sPass" type="password" name="pass" placeholder="PASSWORD" size="30" 
+          <input class="sPass" type="password" name="pass" placeholder="PASSWORD" #userPassword size="30" 
             required>
           <br>
-          <button type="button" class="btn btn-dark btn-sm" [disabled]="form.invalid">Login</button>
+          <button type="button" (click)="authService.adminSignIn(userName.value, userPassword.value)" class="btn btn-dark btn-sm" [disabled]="form.invalid">Login</button>
 
         </form>
   
       </div>
     </div>
   </div>
+ 
+
+
+
+  <!-- ***************************** -->
+  <!-- <div class="loginwrapper">
+      <div class="maincard" style="margin: 10% auto;transform: translateY(-20%)">
+          <div class="sH1">Happy Place</div>
+          <div class="sdetails" id="signupCard">
+              <form name="userform"  #formCtrl="ngForm" autocomplete="off">
+  
+                  <input class="sEmail" type="email" name="email" placeholder="email" style="position: absolute !important;
+                  top: 0%;left: -14%" #userEmail required><br>
+                  <input class="sPass" type="password" name="pass" placeholder="Password" style="position: absolute !important;
+                  top: 25%;left: -14%" #userPwd required><br>
+                  <input class="sconfirmPass" type="text" name="Name" placeholder="Name" style="position: absolute !important;
+                  top: 50%;left: -14%"><br>
+                  <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" style="position: absolute !important;
+                  top: 75%;left: -14%"><br>
+  
+                  <button type="button" class="btn btn-dark btn-sm" (click)="authService.adminSignup(userEmail.value, userPwd.value)" style="position: absolute !important;
+          top: 255px !important; ">SignUp</button>
+                  <div class="or" style="position: absolute !important;
+          top: 300px !important; ">
+                      <hr class="orlineL"> OR
+                      <hr class="orlineR">
+                  </div>
+  
+  
+                  <button class="btn btn-danger btn-dm " type="button"(click)="authService.GoogleAuth()" style="position: absolute !important;
+          top: 345px !important; "><span><i class="fa fa-google"></i></span><span> &nbsp;| Login with Google</span>
+                  </button>
+  
+                  <br>
+                  <a class="belowlogin" routerLink="/users/login" style="position: absolute !important;
+          top: 450px !important; ">Already have an Account?<b> Log In</b> </a>
+              </form>
+          </div>
+      </div>
+  </div> -->

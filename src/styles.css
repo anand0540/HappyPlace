@@ -342,8 +342,8 @@ color: #000000;
   align-items: center;
   justify-content: space-around; */
   position: relative;
-  width: 30%;
-  height:80%;
+  width: 20%;
+  height:60%;
   border-radius: 20px;
   background: rgb(179, 184, 184);
   padding: 20px;
@@ -351,7 +351,7 @@ color: #000000;
 
 .sH1{
   position: absolute;
-  left: 27.12%;
+  left: 24.12%;
   /* display: flex; */
   font-family: Abril Fatface;
   font-size: 2em;
@@ -383,6 +383,15 @@ color: #000000;
   outline: none;
   background: none;
   font-size: 1em;
+  position: absolute;
+  height: 30px;
+  left: -14%;
+  top:-15%;
+  text-align:center;
+  /* bottom: 86.55%; */
+  background: #F3F9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
   
   width: 250px;
   padding: 10px;
@@ -400,9 +409,8 @@ color: #000000;
   position: absolute;
   height: 30px;
   text-align:center;
-  left: 0%;
-  right: 0%;
-  top: 21.97%;
+  left: -14%;
+  top:15%;
   /* bottom: 64.57%; */
   background: #F3F9F9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -443,12 +451,12 @@ background: linear-gradient(to right, #CE5937 0%, #C59F4D 100%);
 }
 .btn-sm{
   position: absolute;
-  left: 101px;
-  top: 105px;
+    left: 26%;
+    top: 40%;
 }
 .btn-dm{
   position: absolute;
-  left: 34px;
+  left:0px;
   top: 235px;
 }
 .or{
@@ -463,8 +471,8 @@ background: linear-gradient(to right, #CE5937 0%, #C59F4D 100%);
   padding-top: 10px;
   padding-bottom: 10px;
   position: absolute;
-        left: 48.45%;
-        top: 67.31%;
+        left: 35.45%;
+        top: 69.31%;
         color: #696969;
 
   
@@ -475,7 +483,7 @@ background: linear-gradient(to right, #CE5937 0%, #C59F4D 100%);
   color: #000;
   font-size: 0.7em;
   position: absolute;
-        left: 18.45%;
+        left: 5.45%;
         top: 130.53%;
     
     font-style: normal;
@@ -1486,19 +1494,7 @@ margin-top: 5px;
     } */
     
     
-    
-    .sEmail{
-    position: absolute;
-        height: 30px;
-        left: 0%;
-        right: 0%;
-        text-align:center;
-        top: 0%;
-        /* bottom: 86.55%; */
-        background: #F3F9F9;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 20px;
-    }
+  
     
     /* .sPass{
         position: absolute;

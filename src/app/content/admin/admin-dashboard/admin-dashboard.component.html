@@ -4,7 +4,8 @@
             <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
-                    <h3>Admin Name</h3>
+                    <!-- <h3> {{(authServ.adminData.name) ? authServ.adminData.name : 'Admin'}} </h3> -->
+                    <h3>Admin</h3>
                 </div>
         
                 <ul class="list-unstyled components">
@@ -20,6 +21,9 @@
                     <li>
                         <a routerLink="today-special">Today's Special</a>
                     </li>
+                    <li>
+                            <a (click)="authServ.adminSignOut()">Sign Out</a>
+                        </li>
                 </ul>
         
             </nav>

@@ -5,6 +5,13 @@ export interface User{
      photoURL: string;
      emailVerified: boolean;
 }
+export interface Admin{
+     uid: string;
+     email: string;
+     name: string;
+     photoURL: string;
+     emailVerified: boolean;
+}
 
 
 
