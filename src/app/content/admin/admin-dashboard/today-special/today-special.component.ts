@@ -65,7 +65,8 @@ export class TodaySpecialComponent implements OnInit {
     this.dishTemplate.setValue({
       caption: '',
       description: '',
-      imageUrl:''
+      imageUrl:'',
+      amount: ''
     });
     this.imgSrc = '../../../../../assets/imgSrc.jpeg';
   this.selectedImg= null;
