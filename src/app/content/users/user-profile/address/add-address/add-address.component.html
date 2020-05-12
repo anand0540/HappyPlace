@@ -1,0 +1,53 @@
+
+<div class="form-container">
+        <form  #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <div class="parent">
+                  
+                       <div class="div1">
+                               <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userServ.addressData.id">
+                           <input name="firstName" #firstName="ngModel" [(ngModel)]="userServ.addressData.firstName"  placeholder="First Name" required/>
+                           <div *ngIf="firstName.touched && firstName.invalid" class="reqfield">Mandatory Field</div>
+                       </div>
+                       <div class="div2">
+                               <input name="lastName" #lastName="ngModel" [(ngModel)]="userServ.addressData.lastName"  placeholder="Last Name" required/>
+                               <div *ngIf="lastName.touched && lastName.invalid" class="reqfield">Mandatory Field</div>   
+                       </div>
+                       <div class="div3">
+                               <input name="house" #house="ngModel" [(ngModel)]="userServ.addressData.house"  placeholder="House No." required/>   
+                               <div *ngIf="house.touched && house.invalid" class="reqfield">Mandatory Field</div> 
+                       </div>
+                       <div class="div4"> 
+                               <input name="street" #street="ngModel" [(ngModel)]="userServ.addressData.street"  placeholder="Street" required/>
+                               <div *ngIf="street.touched && street.invalid" class="reqfield">Mandatory Field</div>
+                       </div>
+                       <div class="div5">
+                               <input name="area" #area="ngModel" [(ngModel)]="userServ.addressData.area"  placeholder="Area" required> 
+                               <div *ngIf="area.touched && area.invalid" class="reqfield">Mandatory Field</div>   
+                       </div>
+                       <div class="div6">
+                               <input name="pincode" #pincode="ngModel" [(ngModel)]="userServ.addressData.pincode"  placeholder="Pin Code"required>    
+                               <div *ngIf="(pincode.touched && pincode.value> 110099)" class="reqfield">Try Delhi's Pincode</div>
+                               <div *ngIf="(pincode.touched && pincode.value< 110000)" class="reqfield">Try Delhi's Pincode</div>
+
+
+                       </div>
+                       <div class="div7"> 
+                               <input type="tel" maxlength="10" name="mobile" #mobile="ngModel" [(ngModel)]="userServ.addressData.mobile"  placeholder="Mobile Number"required>
+                               <div *ngIf="mobile.touched && mobile.invalid" class="reqfield">Mandatory Field</div>
+                               <div *ngIf="mobile.value.length<10" class="reqfield">Check Number</div>
+                               
+                       </div>
+                       <div class="div8"> 
+                           <a id="home" class="type-btn" (click)="homeAdd()" ><i class="fa fa-home"></i>&nbsp;Home</a>
+                           <a id="office" class="type-btn" (click)="officeAdd()"><i class="fa fa-briefcase"></i>&nbsp;Office</a>
+                           <a id="other" class="type-btn" (click)="otherAdd()"><i class="fa fa-map-marker"></i>&nbsp;Other</a>
+                        
+                    </div>
+
+
+                </div>
+                <div >
+                    <button class="sub-btn" [disabled]="form.invalid">Save Address</button>
+                </div>
+               </form>
+</div>

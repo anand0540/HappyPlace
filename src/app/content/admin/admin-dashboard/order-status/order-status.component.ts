@@ -39,7 +39,6 @@ export class AdminOrderStatusComponent implements OnInit {
         return {id:item.payload.doc.id, ...item.payload.doc.data() as Table};
       })
     })
-
   }
   deleteBooking(id: string){
     if(confirm("Are you sure about deleting this booking? ")){

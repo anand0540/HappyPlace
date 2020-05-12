@@ -201,6 +201,31 @@
 					</button>
 				</div>
 			</div>
+			<div class="orderMenu--item">
+				<img class="orderMenu--item--thumb" [src]="todayList[length].imageUrl" [alt]="todayList[length].caption" width=144px height=144px/>
+				<div class="orderMenu--item--info">
+					<h5 class="orderMenu--item--info1">
+						{{todayList[length].caption}}
+					</h5>
+					<h6 class="orderMenu--item--info2">
+						{{todayList[length].description}}
+										</h6>
+				</div>
+				<h5 class="orderMenu--item--price">&#8377; {{todayList[length].amount}}</h5>
+				<div class="orderMenu--item--qtyContainer">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(9)">
+
+
+						-
+					</button>
+					<h6 class="orderMenu--item--h6">{{count[8]}}</h6>
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(9)">
+
+
+						+
+					</button>
+				</div>
+			</div>
 
 			<div class="orderMenu__done">
 				<h5 class="orderMenu__done--total">

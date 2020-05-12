@@ -4,6 +4,8 @@ export interface User{
      displayName: string;
      photoURL: string;
      emailVerified: boolean;
+     phone: string;
+
 }
 export interface Admin{
      uid: string;
@@ -49,3 +51,15 @@ export class Testimonial{
      name: string;
      testimonial : string;
 }
+export class Address{
+     id: string;
+     firstName: string;
+     lastName: string;
+     house: string;
+     street: string;
+     area: string;
+     pincode: number;
+     mobile: number;
+     addressType: string;
+}
+export var Stripe: any;

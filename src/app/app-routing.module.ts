@@ -22,6 +22,11 @@ import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 import { UserProfileComponent } from './content/users/user-profile/user-profile.component';
 import { VerifyEmailComponent } from './content/users/authenticate/verify-email/verify-email.component';
 import { AdminAuthGuard } from './shared/guard/admin-auth.guard';
+import { PaymentService } from './content/services/payment.service';
+import { PaymentComponent } from './payment/payment.component';
+import { AddressComponent } from './content/users/user-profile/address/address.component';
+import { EditAddressComponent } from './content/users/user-profile/address/edit-address/edit-address.component';
+import { AddAddressComponent } from './content/users/user-profile/address/add-address/add-address.component';
 
 
 
@@ -41,8 +46,17 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent,canActivate: [SecureInnerPagesGuard] },
       { path: 'login', component: LoginComponent, canActivate: [SecureInnerPagesGuard]},
       { path: 'forgot', component: ForgotPasswordComponent,canActivate: [SecureInnerPagesGuard] },
-      { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuard] },
-      { path: 'verify-email', component: VerifyEmailComponent,canActivate: [SecureInnerPagesGuard] }
+      { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuard],
+        children: [
+          {path: 'address', component: AddressComponent },
+          {path: 'edit-address', component: EditAddressComponent },
+          {path: 'add-address', component: AddAddressComponent },
+
+        ]
+      },
+      { path: 'verify-email', component: VerifyEmailComponent,canActivate: [SecureInnerPagesGuard] },
+      { path: 'payment', component: PaymentComponent }
+
     ]
   },
 
@@ -52,7 +66,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: AdminLoginComponent},
       {
-        path: 'dashboard', component: AdminDashboardComponent,canActivate: [AdminAuthGuard],
+        path: 'dashboard', component: AdminDashboardComponent,
         children: [
           { path: '', redirectTo: 'order', pathMatch: 'full' },
           { path: 'user', component: AdminUserComponent },

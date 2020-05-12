@@ -37,6 +37,10 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { ForgotPasswordComponent } from './content/users/authenticate/forgot-password/forgot-password.component';
 import { UserProfileComponent } from './content/users/user-profile/user-profile.component';
 import { VerifyEmailComponent } from './content/users/authenticate/verify-email/verify-email.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AddressComponent } from './content/users/user-profile/address/address.component';
+import { EditAddressComponent } from './content/users/user-profile/address/edit-address/edit-address.component';
+import { AddAddressComponent } from './content/users/user-profile/address/add-address/add-address.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +64,10 @@ import { VerifyEmailComponent } from './content/users/authenticate/verify-email/
     ForgotPasswordComponent,
     UserProfileComponent,
     VerifyEmailComponent,
+    PaymentComponent,
+    AddressComponent,
+    EditAddressComponent,
+    AddAddressComponent,
   ],
   imports: [
     BrowserModule,

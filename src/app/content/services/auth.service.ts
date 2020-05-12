@@ -67,16 +67,29 @@ export class AuthService {
       })
   }
   // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(email, password, name, phone) {
+    console.log(name);
+    
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
+        // console.log(result);
+        // console.log(typeof(result));
+        
+        
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
         this.router.navigate(['/users/verify-email']);
-        this.SetUserData(result.user);
+        // console.log(typeof(result.user));
+        // let data = result.user;
+        // data.displayName = name;
+        // console.log(data);
+        
+        this.SetUserData(result.user, name, phone);
       }).catch((error) => {
-        window.alert(error.message)
+        window.alert(error.message);
+        this.router.navigate(['/users/signup']);
+
       })
   }
   adminSignup(email, password){
@@ -143,14 +156,15 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user) {
+  SetUserData(user,name?:string,phone?:string) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {
+    const userData = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
+      displayName: name,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      phone:phone
     }
     return userRef.set(userData, {
       merge: true

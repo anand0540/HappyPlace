@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-
- firebaseConfig :{
+  firebaseConfig :{
   apiKey: "AIzaSyAjfHBn7D7FvlR0a_ykXnHpYrTWvpTpsJw",
   authDomain: "happy-place-50bae.firebaseapp.com",
   databaseURL: "https://happy-place-50bae.firebaseio.com",

@@ -1,8 +1,7 @@
-
+<!-- 
   
             <h1 style="text-align: center; margin-top: 5%; font-family: 'Great Vibes'; color: #dc3545 ;">User Profile</h1>
-            <!-- <mat-spinner style="margin:0 auto;" color="warn" *ngIf="userInfo" ></mat-spinner> -->
-          <div class="container-profile" *ngIf="authService.userData"  >
+           <div class="container-profile" *ngIf="authService.userData"  >
             
               <div class="div-img">
                 <img class="dp" src="{{(authService.userData.photoURL) ? authService.userData.photoURL : '../../../../../assets/dummy-user.jpeg'}}"
@@ -16,4 +15,37 @@
                 </div>
             </div>
   
-    
+     -->
+<div class="cont">
+  <div>
+    <div class="name">
+      {{authService.userData.displayName}}
+    </div>
+    <div class="editbtn">
+      Edit Profile
+    </div>
+    <div class="mail">
+      {{authService.userData.email}}
+    </div>
+  </div>
+  <div class="lowcont">
+    <div class="parent">
+      <div class="c2a">
+        <div class="sidenav">
+          <ul class="list-unstyled components"> 
+              <li class="list">
+                  <a routerLink="address"> <span class="fa fa-shopping-bag"></span> &nbsp;Orders</a>
+              </li>  
+            <li class="list">
+                <a routerLink="address"> <span class="fa fa-address-book"></span> &nbsp;Addresses</a>
+            </li>
+            
+            </ul>
+        </div>
+      </div>
+      <div class="c2b">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

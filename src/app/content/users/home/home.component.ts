@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Testimonial } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   todayList : any[];
   length:number = 0;
   constructor(public userServ: UserService,
+              public authServ: AuthService,
               private firestore: AngularFirestore,
               private elRef: ElementRef,
               private toastr: ToastrService) { }

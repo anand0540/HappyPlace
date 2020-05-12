@@ -1,4 +1,4 @@
-import {  Table, Order, UnresTable, Testimonial } from '../models/user.model';
+import {  Table, Order, UnresTable, Testimonial, Address } from '../models/user.model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
@@ -11,6 +11,7 @@ export class UserService{
      tableData: Table;
      unresTableData: UnresTable;
      testimonialData: Testimonial; 
+     addressData: Address;
      imgDetailList: AngularFireList<any>;
      // @Output() sendOrder = new EventEmitter<Object>();
    
@@ -30,6 +31,9 @@ export class UserService{
        getTestimonial(){
             return this.firestore.collection('Testimonials', (r)=>r.limit(6)).snapshotChanges(); 
        }
+       getAddress(){
+            return this.firestore.collection('Addresses').snapshotChanges();
+       }
        getImgDetailsList(){
             this.imgDetailList = this.firebase.list('imgDetails');
        }
@@ -37,5 +41,6 @@ export class UserService{
           this.imgDetailList.push(imgDetails);
 
        }
+
  
 }

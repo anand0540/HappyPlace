@@ -7,22 +7,20 @@
     <div class="maincard" style="margin: 10% auto;transform: translateY(-20%)">
         <div class="sH1">Happy Place</div>
         <div class="sdetails" id="signupCard">
-            <form name="userform"  #formCtrl="ngForm" autocomplete="off">
+            <form name="userform"  #form="ngForm">
 
                 <input class="sEmail" type="email" name="email" placeholder="email" style="position: absolute !important;
                 top: 0%;left: -14%" #userEmail required><br>
                 <input class="sPass" type="password" name="pass" placeholder="Password" style="position: absolute !important;
                 top: 25%;left: -14%" #userPwd required><br>
                 <!-- <input class="sconfirmPass" type="password" name="confirmPass" placeholder="Confirm Password"><br> -->
-                <input class="sconfirmPass" type="text" name="Name" placeholder="Name" style="position: absolute !important;
-                top: 50%;left: -14%"><br>
+                <input class="sconfirmPass" type="text" name="displayName" placeholder="Name" style="position: absolute !important;
+                top: 50%;left: -14%" #displayName required><br>
                 <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" style="position: absolute !important;
-                top: 75%;left: -14%"><br>
+                top: 75%;left: -14%" #phone required><br>
 
-                <button type="button" class="btn btn-dark btn-sm" (click)="authService.SignUp(userEmail.value, userPwd.value)" style="position: absolute !important;
-        top: 255px !important; ">SignUp</button>
-                <div class="or" style="position: absolute !important;
-        top: 300px !important; ">
+                <button type="button" class="btn btn-dark btn-sm" [disabled]="form.invalid" (click)="authService.SignUp(userEmail.value, userPwd.value,displayName.value, phone.value)" style="position: absolute !important; top: 255px !important; ">SignUp</button>
+                <div class="or" style="position: absolute !important; top: 300px !important; ">
                     <hr class="orlineL"> OR
                     <hr class="orlineR">
                 </div>

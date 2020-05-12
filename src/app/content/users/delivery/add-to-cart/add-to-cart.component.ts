@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/content/services/auth.service';
 
 @Component({
 	selector: 'app-add-to-cart',
@@ -11,7 +12,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 	styleUrls: ['./add-to-cart.component.css']
 })
 export class AddToCartComponent implements OnInit {
-	constructor(public userServ: UserService, 
+	constructor(public userServ: UserService,
 				private router: Router,
 				private firestore: AngularFirestore,
 				private toastr: ToastrService){}
@@ -23,8 +24,10 @@ export class AddToCartComponent implements OnInit {
 	items = [];
 	currItem = [];
 	orderFinalised = false;
+	todayList:any [];
+	length:number=0;
 
-	count: number[] = [0, 0, 0, 0, 0, 0, 0, 0];
+	count: number[] = [0, 0, 0, 0, 0, 0, 0, 0,0];
 	total: number = 0;
 	increaseQty(item) {
 		let id = "qty" + item;
@@ -35,7 +38,7 @@ export class AddToCartComponent implements OnInit {
 		}
 		let itemId = "00" + item + ' quantity-' + this.count[countIndex];
 		let currItems = this.items;
-		this.total = (this.count[0] * 300 + this.count[1] * 400 + this.count[2] * 600 + this.count[3] * 300 + this.count[4] * 200 + this.count[5] * 200 + this.count[6] * 150 + this.count[7] * 700);
+		this.total = (this.count[0] * 300 + this.count[1] * 400 + this.count[2] * 600 + this.count[3] * 300 + this.count[4] * 200 + this.count[5] * 200 + this.count[6] * 150 + this.count[7] * 700 + this.count[8]*400);
 		if (this.count[countIndex] > 0) {
 			let countMinusOne = this.count[countIndex] - 1;
 			let dupItemId = "00" + item + ' quantity-' + countMinusOne;
@@ -128,11 +131,18 @@ export class AddToCartComponent implements OnInit {
 
 	ngOnInit() {
 		this.resetForm();
-	}
+		this.userServ.imgDetailList.snapshotChanges().subscribe((list)=>{
+			this.length = (list.length -1);
+			console.log(this.length);
+			
+			this.todayList = list.map((res)=>{
+			  return res.payload.val(); 
+			});
+	})
+}
 	// onSubmit(){
 	// 	this.userServ.sendOrder.emit(this.order);
 	// 	this.router.navigate(['/user/order'])
 	// }
-	
 
 }

@@ -522,11 +522,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     margin: 0;
 }
 input.ng-touched.ng-invalid{
-  border: 3px inset #dc3545;
+  border: 3px outset #dc3545;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
 
 }
 textarea.ng-touched.ng-invalid{
   border: 3px inset #dc3545;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
 
 }
 .reqfield{
