@@ -232,7 +232,7 @@
 					Total: ₹ {{total}}
 				</h5>
 
-				<button (click)="scroll(orderintro)"[disabled]="this.order.total==0" class="btn btn-dark" style="margin-left:14%">
+				<button (click)="onSubmit()" [disabled]="this.order.total==0" class="btn btn-dark" style="margin-left:14%">
 					Add to Cart
 				</button>
 			</div>
@@ -250,86 +250,8 @@
 
 
 
-	<!-- <div class="featuredboxwrapper">
-				<div class="bookingleftwrapper">
-					<div class="bookingbannerheadingwrapper">
-						Fast Food<br>Faster Delivery
-					</div>
-				</div>
-			
-			
-				<div class="rightwrapper">
-					<img src="assets/pinkphone.jpg" alt="yellow food bike" width=100%>
-				</div>
-			
-			
-			</div>
-			 -->
+	
 
-	<div #orderForm class="bookingForm__container " style="  border: 5px outset rgba(221,75,57,0.9);border-radius: 20px;
-			justify-content:right;">
-		<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-			<div>
-
-				<div>
-
-					<input name="fullname" #fullname="ngModel" [(ngModel)]="userServ.formdata.name" class="formbox"
-						style="margin: 40px 0 20px 0;" placeholder="Name" required />
-					<div *ngIf="fullname.touched && fullname.invalid" class="reqfield">Mandatory Field</div>
-				</div>
-
-				<div>
-					<input name="phone" #phone="ngModel" [(ngModel)]="userServ.formdata.phone" class="formbox"
-						style="margin: 10px 0;" placeholder="Phone Number" required />
-					<div *ngIf="phone.touched && phone.invalid" class="reqfield">Mandatory Field</div>
-				</div>
-				<div>
-					<input name="email" #email="ngModel" [(ngModel)]="userServ.formdata.email" class="formbox"
-						style="margin: 10px 0;" placeholder="email" required />
-					<div *ngIf="email.touched && email.invalid" class="reqfield">Mandatory Field</div>
-				</div>
-				<div>
-					<input name="address" #address="ngModel" [(ngModel)]="userServ.formdata.address" class="formbox"
-						style="margin: 10px 0;" placeholder="ADDRESS" required />
-					<div *ngIf="address.touched && address.invalid" class="reqfield">Mandatory Field</div>
-				</div>
-				<!-- <div>
-							<input name="order"  class="formbox"
-							style="margin: 10px 0;" placeholder="some order" readonly  />
-						</div> -->
-				<!-- <div>
-								<textarea name="order" #order="ngModel" [(ngModel)]="userServ.formdata.order" rows="3" cols="30" form="form">
-										 </textarea>
-						</div> -->
-				<div>
-					<select name="payment" #payment="ngModel" [(ngModel)]="userServ.formdata.paymentType"
-						class="formbox" style="margin: 10px 0; height: 30px">
-						<option>Cash on Delivery</option>
-						<br />
-						<option>Online</option>
-					</select>
-					<div *ngIf="payment.untouched">
-						Select Payment Type
-					</div>
-				</div>
-				<br />
-				<div>
-					<div *ngIf="this.order.total==0" class="reqfield" style="margin-left: 10%"> Add to Cart to Continue</div>
-
-					<button type="submit" [disabled]="form.invalid || !this.orderFinalised "
-						class="btn btn-orange" style="margin: 10px 60px;">Order</button>
-
-				</div>
-				<br />
-
-
-				<!-- <p id="error">
-							{{this.state.orderErrorVisible && this.state.orderErrorMessage}}
-						</p> -->
-			</div>
-		</form>
-
-	</div>
 
 </div>
 

@@ -11,13 +11,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./edit-address.component.css']
 })
 export class EditAddressComponent implements OnInit {
+  addType = 'home';
   constructor(public userServ: UserService,
     private router: Router,
     private firestore: AngularFirestore,
     private toastr: ToastrService,
     private elRef: ElementRef) { }
-    addType= this.userServ.addressData.addressType;
-
+    
 
   ngOnInit(): void {
   }
@@ -46,7 +46,8 @@ export class EditAddressComponent implements OnInit {
   }
  onSubmit(form:NgForm){
    let data = Object.assign({}, form.value);
-   delete data.id;
+   data.addressType = this.addType;
+  //  delete data.id;
    this.firestore.doc('Addresses/'+form.value.id).update(data);
    this.toastr.success("Address Updated!" );
    this.router.navigate(['/users/profile/address'])

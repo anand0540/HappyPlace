@@ -1,5 +1,5 @@
-import {  Table, Order, UnresTable, Testimonial, Address } from '../models/user.model';
-import { Injectable } from '@angular/core';
+import {  Table, Order, UnresTable, Testimonial, Address, Bill } from '../models/user.model';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
@@ -12,14 +12,15 @@ export class UserService{
      unresTableData: UnresTable;
      testimonialData: Testimonial; 
      addressData: Address;
+     deliveryAddress: Address;
+     billData: Bill;
      imgDetailList: AngularFireList<any>;
-     // @Output() sendOrder = new EventEmitter<Object>();
    
      // adminLogin = new EventEmitter<boolean>();
      constructor(private firestore: AngularFirestore, private firebase: AngularFireDatabase){}
      getOrder(){
 
-          return this.firestore.collection('Orders').snapshotChanges();
+          return this.firestore.collection('newOrders').snapshotChanges();
 
      }
      getBooking(){

@@ -4,27 +4,37 @@
     </div>
     <div>
         <div class="container">
-           
+
             <div class="items" *ngFor="let list of addressList">
                 <div class="box">
                     <div class="lmarg">
-                    <h6 class="add-type">{{list.addressType}}</h6>
-                    <p class="add-name"> {{list.firstName}} {{list.lastName}} <br/> {{list.house}} {{list.street}} {{list.area}} - {{list.pincode}} <br/> {{list.mobile}}</p>
-                   
-                </div> 
+                        <div>
+                            <span *ngIf=" list.addressType == 'Home'"> <i class="fa fa-home"></i></span>
+                            <span *ngIf=" list.addressType == 'Office'"> <i class="fa fa-briefcase"></i></span>
+                            <span *ngIf=" list.addressType == 'Other'"> <i class="fa fa-map-marker"></i></span>
+                            <span class="add-type">
+                                {{list.addressType}}
+                            </span>
+                        </div>
+
+                        <p class="add-name"> {{list.firstName}} {{list.lastName}} <br /> {{list.house}} {{list.street}}
+                            {{list.area}} - {{list.pincode}} <br /> {{list.mobile}}</p>
+
+                    </div>
                     <div>
                         <span class="update-btn">
-                            <a style="cursor: pointer; "  (click)="onEdit(list)"> Edit</a></span>
+                            <a style="cursor: pointer; " (click)="onEdit(list)"> Edit</a></span>
                         <span class="update-btn">
                             <a style="cursor: pointer; " (click)="onDelete(list.id)">Delete</a>
                         </span>
                     </div>
                 </div>
             </div>
-           
+
             <div class="items" style="height: 80px;">
                 <div class="box" style="padding-top:80px">
-                    <a routerLink="/users/profile/add-address" class="add-new"> <span><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp;</span><span> Add new address</span></a>
+                    <a routerLink="/users/profile/add-address" class="add-new"> <span><i class="fa fa-plus-circle"
+                                aria-hidden="true" style="font-size:24px"></i> &nbsp;</span><span> Add new address</span></a>
                 </div>
             </div>
         </div>
