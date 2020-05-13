@@ -1,96 +1,98 @@
-<!-- <div class="featuredboxwrapper">
-    <div class="bookingleftwrapper">
-        <div class="bookingbannerheadingwrapper">
-            Fast Food<br>Faster Delivery
-        </div>
-    </div>
-
-
-    <div class="rightwrapper">
-        <img src="assets/pinkphone.jpg" alt="yellow food bike" width=100%>
-    </div>
-
-
-</div>
-
-
-
-<div id="orderFormContainer" class="bookingForm__container">
-    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+<div class="parent">
+    <div class="first">
         <div>
-
-            <div>
-
-                <input name="fullname" #fullname="ngModel" [(ngModel)]="userServ.formdata.name" class="formbox"
-                    style="margin: 10px 0;" placeholder="Name" required />
-                <div *ngIf="fullname.touched && fullname.invalid" class="reqfield">Mandatory Field</div>
-            </div>
-
-            <div>
-                <input name="phone" #phone="ngModel" [(ngModel)]="userServ.formdata.phone" class="formbox"
-                style="margin: 10px 0;" placeholder="Phone Number" required/>
-                <div *ngIf="phone.touched && phone.invalid" class="reqfield">Mandatory Field</div>
-            </div>
-            <div>
-                <input name="email" #email="ngModel" [(ngModel)]="userServ.formdata.email" class="formbox"
-                style="margin: 10px 0;" placeholder="email" required/>
-                <div *ngIf="email.touched && email.invalid"class="reqfield">Mandatory Field</div>
-            </div>
-            <div>
-                <input name="address" #address="ngModel" [(ngModel)]="userServ.formdata.address" class="formbox"
-                style="margin: 10px 0;" placeholder="ADDRESS" required />
-                <div *ngIf="address.touched && address.invalid"class="reqfield">Mandatory Field</div>
-            </div>
-            
-            <div>
-                    <select name="payment" #payment="ngModel" [(ngModel)]="userServ.formdata.paymentType"  class="formbox" style="margin: 10px 0; height: 30px" >
-                            <option >Cash on Delivery</option>
-                            <br />
-                            <option >Online</option>
-                        </select>
-            <div *ngIf="payment.untouched">
-                Select Payment Type
-            </div>            
-            </div>
-            
-          
-            <br />
-            <div *ngIf="this.funcReturn">
-                    <button type="submit" [disabled]="form.invalid" class="btn btn-dark" style="margin: 10px 60px;" >Submit</button>
-
-            </div>
-            <br />
-
-
-           
+            <h4 class="header">Choose a delivery address</h4>
         </div>
-    </form>
+        <div>
+            <div class="container">
 
+                <div class="items" *ngFor="let list of addressList">
+                    <div class="box">
+                        <div class="lmarg">
+                            <div>
+                                <span *ngIf=" list.addressType == 'Home'"> <i class="fa fa-home"></i></span>
+                                <span *ngIf=" list.addressType == 'Office'"> <i class="fa fa-briefcase"></i></span>
+                                <span *ngIf=" list.addressType == 'Other'"> <i class="fa fa-map-marker"></i></span>
+                                <span class="add-type">
+                                    {{list.addressType}}
+                                </span>
+                            </div>
+
+                            <p class="add-name"> {{list.firstName}} {{list.lastName}} <br /> {{list.house}}
+                                {{list.street}}
+                                {{list.area}} - {{list.pincode}} <br /> {{list.mobile}}</p>
+
+                        </div>
+                        <div>
+                            <span class="update-btn">
+                                <a style="cursor: pointer; " (click)="onSelectAdd(list)"> DELIVER HERE</a></span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="items" style="height: 80px;">
+                    <div class="box" style="padding-top:80px">
+                        <a routerLink="/users/profile/add-address" class="add-new"> <span><i class="fa fa-plus-circle"
+                                    aria-hidden="true" style="font-size:24px"></i> &nbsp;</span><span> Add new
+                                address</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="second">
+        <div class="bill-cont">
+                <form  #form="ngForm" autocomplete="off" (submit)="submitOrder(form)">
+
+            <div>
+                <!-- <input  type="hidden" name="id" #id="ngModel" [(ngModel)]="userServ.deliveryAddress.id"> -->
+                <input class="formbox-1" name="firstName" #firstName="ngModel" [(ngModel)]="userServ.deliveryAddress.firstName"
+                     required />
+                    <label>First Name</label>
+
+            </div>
+            <div>
+                <input class="formbox-1" name="lastName" #lastName="ngModel" [(ngModel)]="userServ.deliveryAddress.lastName"
+                     required />
+                    <label>Last Name</label>
+
+            </div>
+            <div>
+                <input class="formbox-1" name="house" #house="ngModel" [(ngModel)]="userServ.deliveryAddress.house" 
+                    required />
+                    <label>House No.</label>
+
+            </div>
+            <div>
+                <input class="formbox-1" name="street" #street="ngModel" [(ngModel)]="userServ.deliveryAddress.street"                    required />
+                    <label>Street</label>
+
+            </div>
+            <div>
+                <input class="formbox-1" name="area" #area="ngModel" [(ngModel)]="userServ.deliveryAddress.area" required>
+                <label>Area</label>
+            </div>
+            <div>
+                <input class="formbox-1" name="pincode" #pincode="ngModel" [(ngModel)]="userServ.deliveryAddress.pincode"
+                     required>
+                     <label>Pin Code</label>
+            </div>
+            <div>
+                <input class="formbox-1" type="tel" maxlength="10" name="mobile" #mobile="ngModel"
+                    [(ngModel)]="userServ.deliveryAddress.mobile" required>
+                    <label>Mobile</label>
+            </div>
+            <div>
+                    <input class="formbox-1 lastinput" name="amount" #amount="ngModel" [(ngModel)]="userServ.billData.total" readonly
+                     required>
+                     <label class="lastlabel">Bill Amount</label>
+            </div>
+            <div>
+                <button class="sub-btn">Place Order</button>
+            </div>
+        
+        </form>
+        </div>
+    </div>
 </div>
-
-
-
-
-<div class="navbarwrapper">
-    <div class="tophalfcontentwrapper">
-        <div class="topleftcontentwrapper"> </div>
-    </div>
-    <div class="bottomhalfcontentwrapper">
-        <div class="navbarlinkwrapper">
-
-            <a class="navbarlink" href="">
-                <span class="glyphicon glyphicon-earphone"></span> 9999999999
-            </a>
-
-            <a class="navbarlink" href=" ">
-                Minor Project
-            </a>
-
-            <a class="navbarlink" href=""><span class="glyphicon glyphicon-envelope">
-            </span> 
-            hi @ My Restaurant.com
-            </a>
-
-        </div>
-    </div>
-</div> -->

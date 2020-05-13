@@ -63,28 +63,21 @@
               <thead>
                 <th>Name</th>
                 <th>Phone</th>
-                <th>Email</th>
                 <th>Address</th>
                 <th>Orders</th>
                 <th>Amount</th>
-                <th>Payment Mode</th>
                 <th>Actions</th>
               </thead>
               <tbody>
-                <!-- <a click="orderRead()"> -->
-                    <!-- <tr  [attr.id]="user.id"
-                    *ngFor="let user of list"
-                      [ngStyle]="{'backgroundColor': orderMsgRead ? 'white' : 'yellow'} "
-                      [(ngModel)]="!orderMsgRead"> -->
+                
                       <tr [attr.id]="user.id"
                     *ngFor="let user of list">
-                    <td> {{user.fullname}} </td>
-                    <td> {{user.phone}} </td>
-                    <td> {{user.email}} </td>
-                    <td> {{user.address}} </td>
-                    <td> {{user.order}} </td>
-                    <td> {{user.total}} </td>
-                    <td> {{user.payment}} </td>
+                    <td> {{user.firstName}} {{user.lastName}} </td>
+                    <td> {{user.mobile}} </td>
+                    <td> {{user.house}} {{user.street}} {{user.area}}-{{user.pincode}} </td>
+                    <td> {{user.fOrder}} </td>
+                    <td> {{user.amount}} </td>
+                    <!-- <td> {{user.payment}} </td> -->
                     <td> <a class="btn text-danger" (click)="orderRead(user.id)"><i class="fa fa-check-circle"></i></a> <a class="btn text-danger" (click)="deleteOrder(user.id)"> <i class="fa fa-trash"></i> </a></td>
                   </tr>
                 <!-- </a> -->

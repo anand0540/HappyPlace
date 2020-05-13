@@ -66,9 +66,9 @@ export class AddAddressComponent implements OnInit {
    const data = form.value;
    data.addressType = this.addType;
    this.firestore.collection('Addresses').add(data);
-   this.resetForm(form);
-		this.toastr.success("Address Added " )
-		this.router.navigate(['/users/address']);
+    this.toastr.success("Address Added");
+    this.resetForm(form);
+		this.router.navigate(['/users/profile/address']);
   }
 
 }

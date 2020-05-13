@@ -2,10 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/content/services/user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AuthService } from 'src/app/content/services/auth.service';
-
 @Component({
 	selector: 'app-add-to-cart',
 	templateUrl: './add-to-cart.component.html',
@@ -13,13 +9,11 @@ import { AuthService } from 'src/app/content/services/auth.service';
 })
 export class AddToCartComponent implements OnInit {
 	constructor(public userServ: UserService,
-				private router: Router,
-				private firestore: AngularFirestore,
-				private toastr: ToastrService){}
+				private router: Router){}
 	// @Output() sendOrder = new EventEmitter<Object>();
 	order = {
-		total: 0,
-		fOrder: []
+		total: null,
+		fOrder:[]
 	}
 	items = [];
 	currItem = [];
@@ -29,6 +23,7 @@ export class AddToCartComponent implements OnInit {
 
 	count: number[] = [0, 0, 0, 0, 0, 0, 0, 0,0];
 	total: number = 0;
+
 	increaseQty(item) {
 		let id = "qty" + item;
 
@@ -83,66 +78,23 @@ export class AddToCartComponent implements OnInit {
 			total: this.total,
 			fOrder: currItems,
 		}
-		console.log(this.order);
 
 	
-	}
-
-	// Form//
-	resetForm(form?:NgForm ){
-		if(form!=null){
-		  form.resetForm();
-		}
-		  this.userServ.formdata={
-			id : null,
-			name : '',
-			phone: '',
-			email : '',
-			address: '',
-			paymentType: '',
-			order: [],
-			total: 0
+	}	 
 	
-		  } 
-	   }
 	
-	 
-	   onSubmit(form:NgForm ){
-			 console.log(form.value);
-	
-		 
-		let data1 = form.value;
-		 data1.order = this.order.fOrder;
-		 data1.total = this.order.total;
-		 let data = data1;
-		 console.log(data);
-		 
-		
-		this.firestore.collection('Orders').add(data);
-		this.resetForm(form);
-		this.toastr.success("Order Placed Successfully" )
-		this.router.navigate(['/users']);
-	}
-	scroll(el: HTMLElement) {
-		el.scrollIntoView();
-		this.orderFinalised = true;
-
-	}
 
 	ngOnInit() {
-		this.resetForm();
 		this.userServ.imgDetailList.snapshotChanges().subscribe((list)=>{
-			this.length = (list.length -1);
-			console.log(this.length);
-			
+			this.length = (list.length -1);			
 			this.todayList = list.map((res)=>{
 			  return res.payload.val(); 
 			});
 	})
 }
-	// onSubmit(){
-	// 	this.userServ.sendOrder.emit(this.order);
-	// 	this.router.navigate(['/user/order'])
-	// }
+	onSubmit(){
+		this.userServ.billData = this.order;
+		this.router.navigate(['/users/delivery'])
+	}
 
 }

@@ -41,6 +41,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AddressComponent } from './content/users/user-profile/address/address.component';
 import { EditAddressComponent } from './content/users/user-profile/address/edit-address/edit-address.component';
 import { AddAddressComponent } from './content/users/user-profile/address/add-address/add-address.component';
+import { OrdersComponent } from './content/users/user-profile/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AddAddressComponent } from './content/users/user-profile/address/add-ad
     AddressComponent,
     EditAddressComponent,
     AddAddressComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,11 +20,14 @@ export interface Admin{
 
 export class Order {
      id: string;
-     name : string;
-     phone: string;
-     email: string;
-     address : string; 
-     paymentType: string;
+     firstName: string;
+     lastName: string;
+     house: string;
+     street: string;
+     area: string;
+     pincode: number;
+     mobile: number;
+     addressType: string;
      order:string[];
      total:number;
     
@@ -61,5 +64,10 @@ export class Address{
      pincode: number;
      mobile: number;
      addressType: string;
+}
+export class Bill {
+		total: number;
+		fOrder: string[];
+	
 }
 export var Stripe: any;
