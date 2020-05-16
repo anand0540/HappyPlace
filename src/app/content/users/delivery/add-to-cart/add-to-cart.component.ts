@@ -24,19 +24,19 @@ export class AddToCartComponent implements OnInit {
 	count: number[] = [0, 0, 0, 0, 0, 0, 0, 0,0];
 	total: number = 0;
 
-	increaseQty(item) {
+	increaseQty(item, str) {
 		let id = "qty" + item;
 
 		let countIndex = item - 1;
 		if (this.count[countIndex] < 5) {
 		this.count[countIndex] += 1;
 		}
-		let itemId = "00" + item + ' quantity-' + this.count[countIndex];
+		let itemId = str+ ' x ' + this.count[countIndex];
 		let currItems = this.items;
 		this.total = (this.count[0] * 300 + this.count[1] * 400 + this.count[2] * 600 + this.count[3] * 300 + this.count[4] * 200 + this.count[5] * 200 + this.count[6] * 150 + this.count[7] * 700 + this.count[8]*400);
 		if (this.count[countIndex] > 0) {
 			let countMinusOne = this.count[countIndex] - 1;
-			let dupItemId = "00" + item + ' quantity-' + countMinusOne;
+			let dupItemId = str+ ' x ' + countMinusOne;
 			currItems.forEach((el, i) => {
 				if (el === dupItemId) {
 					currItems.splice(i, 1);
@@ -52,18 +52,18 @@ export class AddToCartComponent implements OnInit {
 		}
 		console.log(this.order);
 	}
-	decreaseQty(item) {
+	decreaseQty(item,str) {
 		let id = "qty" + item;
 		let countIndex = item - 1;
 
 		if (this.count[countIndex] > 0) { this.count[countIndex] -= 1; }
-		this.total = (this.count[0] * 300 + this.count[1] * 400 + this.count[2] * 600 + this.count[3] * 300 + this.count[4] * 200 + this.count[5] * 200 + this.count[6] * 150 + this.count[7] * 700);
+		this.total = (this.count[0] * 300 + this.count[1] * 400 + this.count[2] * 600 + this.count[3] * 300 + this.count[4] * 200 + this.count[5] * 200 + this.count[6] * 150 + this.count[7] * 700+this.count[8]*400);
 
-		let itemId = "00" + item + ' quantity-' + this.count[countIndex];
+		let itemId = str+ ' x ' + this.count[countIndex];
 		let currItems = this.items;
 		if (this.count[countIndex] >= 0) {
 			let countPlusOne = this.count[countIndex] + 1;
-			let dupItemId = "00" + item + ' quantity-' + countPlusOne;
+			let dupItemId = str+ ' x ' + countPlusOne;
 			currItems.forEach((el, i) => {
 				if (el === dupItemId) {
 					currItems.splice(i, 1);
@@ -78,6 +78,7 @@ export class AddToCartComponent implements OnInit {
 			total: this.total,
 			fOrder: currItems,
 		}
+		console.log(this.order);
 
 	
 	}	 

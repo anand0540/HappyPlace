@@ -4,6 +4,8 @@ import { Address } from 'src/app/content/models/user.model';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/content/services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-address',
@@ -12,13 +14,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddressComponent implements OnInit {
   addressList: Address[];
-  constructor( public userServ: UserService, private firestore:AngularFirestore, private toastr: ToastrService ,private router: Router ) { }
+  constructor( public userServ: UserService,
+    private authServ:AuthService,
+     private firestore:AngularFirestore,
+      private toastr: ToastrService,
+      private router: Router,
+      private spinner: NgxSpinnerService ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.userServ.getAddress().subscribe((arr)=>{
       this.addressList = arr.map((el)=>{
         return {id:el.payload.doc.id, ...el.payload.doc.data() as Address};  
-
       })
     })
   }

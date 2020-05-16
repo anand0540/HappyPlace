@@ -5,6 +5,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Address } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-delivery',
@@ -17,9 +19,15 @@ export class DeliveryComponent  {
   order: {};
   total:number=0;
   fOrder: [];
-  constructor( public userServ: UserService, private firestore:AngularFirestore, private toastr: ToastrService ,private router: Router ) { }
+  constructor(public authServ:AuthService, 
+    public userServ: UserService, 
+    private firestore:AngularFirestore, 
+    private toastr: ToastrService ,
+    private router: Router, 
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.resetForm();
     this.userServ.getAddress().subscribe((arr)=>{
       this.addressList = arr.map((el)=>{
@@ -38,6 +46,7 @@ export class DeliveryComponent  {
       form.resetForm();
     }
     this.userServ.deliveryAddress = {
+      uid:'',
       id: '',
      firstName: '',
      lastName: '',
@@ -51,7 +60,12 @@ export class DeliveryComponent  {
   }
   submitOrder(form:NgForm){
     let time = new Date().getTime();
+    let currTime = new Date().toString();
+    let timeArr = currTime.split('G');
+    let timeData = timeArr[0];
+
     let data = form.value;
+    data.time = timeData;
     data.fOrder = this.userServ.billData.fOrder;
     data.id ='order-'+ time;
     this.firestore.collection('newOrders').add(data);

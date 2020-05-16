@@ -40,14 +40,16 @@
                     border-top=none; />
             </div>
             <div>
-                <input name="email" #phone="ngModel" [(ngModel)]="userServ.tableData.email" class="formbox form-margin" placeholder="EMAIL " onfocus="this.placeholder=''"
+                <input name="email" #email="ngModel" [(ngModel)]="userServ.tableData.email" class="formbox form-margin" placeholder="EMAIL " onfocus="this.placeholder=''"
                     onblur="this.placeholder=' EMAIL'" type="email"  />
             </div>
             <div>
-                <input name="date" #phone="ngModel" [(ngModel)]="userServ.tableData.date" placeholder="DATE" class="formbox form-margin" type="text" onfocus="(this.type='date')"
+                    <input name="date" #phone="ngModel" [(ngModel)]="userServ.tableData.date" placeholder="DATE" class="formbox form-margin" type="text" onfocus="(this.type='date')"
                     onblur="if(!this.value)this.type='text'"   />
-
-
+            </div>
+            <div>
+                    <input name="time" #time="ngModel" [(ngModel)]="userServ.tableData.time" placeholder="Time" class="formbox form-margin" type="text" onfocus="(this.type='time')"
+                    onblur="if(!this.value)this.type='text'"   />
             </div>
             <div class="form-margin">
                 <span style="margin-left: 10px;color: grey">2-seater:</span>

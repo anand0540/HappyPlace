@@ -5,6 +5,7 @@
         </div>
         <div>
             <div class="container">
+                    <ngx-spinner *ngIf="!addressList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner>
 
                 <div class="items" *ngFor="let list of addressList">
                     <div class="box">
@@ -47,6 +48,7 @@
 
             <div>
                 <!-- <input  type="hidden" name="id" #id="ngModel" [(ngModel)]="userServ.deliveryAddress.id"> -->
+                <input  type="hidden" name="uid" #uid="ngModel" [(ngModel)]="authServ.userData.uid">
                 <input class="formbox-1" name="firstName" #firstName="ngModel" [(ngModel)]="userServ.deliveryAddress.firstName"
                      required />
                     <label>First Name</label>

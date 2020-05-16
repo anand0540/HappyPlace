@@ -1,1 +1,30 @@
-<p>orders works!</p>
+<div>
+        <div>
+            <h4 style="font-size: 24px;font-weight: 600; margin-bottom: 20px; margin-left:500px;color:rgb(12, 56, 85)">Past Orders</h4>
+        </div>
+        <div>
+            <div class="container">
+                    <ngx-spinner *ngIf="!orderList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner>
+
+                <div class="items" *ngFor=" let order of orderList " >
+                    <div class="box">
+                        <div class="lmarg">
+                            <div style="color:rgb(12, 56, 85); font-weight:600">
+                              <span> Order Id: #{{order.id}}</span> <span style="float: right;">{{order.time}} </span>
+                            </div>
+    
+                            <p class="add-name"> {{order.house}} {{order.street}}
+                                {{order.area}} - {{order.pincode}} <br /> {{order.mobile}}</p>
+                                <hr style="border-top: 1px dotted grey;">
+                                <div>
+                                    <span>{{order.fOrder}}</span><span style="float: right;"> Total Paid:  &#8377;{{order.amount}}</span>
+                                </div>
+                        </div>
+                      
+                    </div>
+                </div>
+    
+               
+            </div>
+        </div>
+    </div>

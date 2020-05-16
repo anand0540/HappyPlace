@@ -4,6 +4,7 @@
     </div>
     <div>
         <div class="container">
+                <ngx-spinner *ngIf="!addressList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner>
 
             <div class="items" *ngFor="let list of addressList">
                 <div class="box">

@@ -13,13 +13,13 @@
                 style="width: 80px!important ; margin:0 10px 0 0">Login</a>
             <a class="btn btn-primary" routerLink="signup"
                 style="width: 80px; margin:0 0 0 10px">SignUp</a>
-            <a class="btn btn-danger" routerLink="/admin/login"
-                style="width: 80px; margin:0 0 0 10px">Admin</a>
+            <!-- <a class="btn btn-danger" routerLink="/admin/login"
+                style="width: 80px; margin:0 0 0 10px">Admin</a> -->
         </div>
         <div *ngIf = "this.authServ.isLoggedIn" class="toprightcontentwrapper">
                 <div class="dropdown">
                         <img class="dropbtn userdisplay" src='../../../../../assets/dummy-user.jpeg'
-                        alt="{{this.authServ.userData.displayName}}"> 
+                        alt="User"> 
                        <div class="dropdown-content">
                           <a routerLink="profile">Profile</a>
                           <a (click)="authServ.SignOut()">Log Out</a>

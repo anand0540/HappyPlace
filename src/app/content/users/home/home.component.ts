@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Testimonial } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,9 +20,11 @@ export class HomeComponent implements OnInit {
               public authServ: AuthService,
               private firestore: AngularFirestore,
               private elRef: ElementRef,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.userServ.imgDetailList.snapshotChanges().subscribe((list)=>{
       this.length = (list.length -1);
       console.log(this.length);

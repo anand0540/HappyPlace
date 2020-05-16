@@ -52,7 +52,7 @@ export class AuthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        // window.alert(error.message)
       })
   }
   adminSignIn(email, password) {
@@ -127,7 +127,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    return (user !== null) ? true : false;
   }
   get adminisLoggedIn() : boolean{
     const admin = JSON.parse(localStorage.getItem('admin'));
