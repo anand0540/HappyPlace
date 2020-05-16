@@ -28,6 +28,8 @@ import { AddressComponent } from './content/users/user-profile/address/address.c
 import { EditAddressComponent } from './content/users/user-profile/address/edit-address/edit-address.component';
 import { AddAddressComponent } from './content/users/user-profile/address/add-address/add-address.component';
 import { OrdersComponent } from './content/users/user-profile/orders/orders.component';
+import { BookingsComponent } from './content/admin/admin-dashboard/bookings/bookings.component';
+import { SetTableComponent } from './content/admin/admin-dashboard/set-table/set-table.component';
 
 
 
@@ -74,6 +76,8 @@ const routes: Routes = [
           { path: '', redirectTo: 'order', pathMatch: 'full' },
           { path: 'user', component: AdminUserComponent },
           { path: 'order', component: AdminOrderStatusComponent },
+          { path: 'booking', component: BookingsComponent },
+          { path: 'set-table', component: SetTableComponent },
           { path: 'today-special', component: TodaySpecialComponent }
         ]
       },

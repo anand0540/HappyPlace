@@ -43,6 +43,8 @@ import { AddressComponent } from './content/users/user-profile/address/address.c
 import { EditAddressComponent } from './content/users/user-profile/address/edit-address/edit-address.component';
 import { AddAddressComponent } from './content/users/user-profile/address/add-address/add-address.component';
 import { OrdersComponent } from './content/users/user-profile/orders/orders.component';
+import { BookingsComponent } from './content/admin/admin-dashboard/bookings/bookings.component';
+import { SetTableComponent } from './content/admin/admin-dashboard/set-table/set-table.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { OrdersComponent } from './content/users/user-profile/orders/orders.comp
     EditAddressComponent,
     AddAddressComponent,
     OrdersComponent,
+    BookingsComponent,
+    SetTableComponent,
   ],
   imports: [
     BrowserModule,
