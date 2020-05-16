@@ -5,6 +5,7 @@
                   
                        <div class="div1">
                                <!-- <input type="hidden" name="id" #id="ngModel" [(ngModel)]="userServ.addressData.id"> -->
+                               <input type="hidden" name="uid" #uid="ngModel" [(ngModel)]="authServ.userData.uid">
                            <input name="firstName" #firstName="ngModel" [(ngModel)]="userServ.addressData.firstName"  placeholder="First Name" required/>
                            <div *ngIf="firstName.touched && firstName.invalid" class="reqfield">Mandatory Field</div>
                        </div>
@@ -34,7 +35,7 @@
                        <div class="div7"> 
                                <input type="tel" maxlength="10" name="mobile" #mobile="ngModel" [(ngModel)]="userServ.addressData.mobile"  placeholder="Mobile Number"required>
                                <div *ngIf="mobile.touched && mobile.invalid" class="reqfield">Mandatory Field</div>
-                               <div *ngIf="mobile.value.length<10" class="reqfield">Check Number</div>
+                               <!-- <div *ngIf="mobile.value.length<10" class="reqfield">Check Number</div> -->
                                
                        </div>
                        <div class="div8"> 

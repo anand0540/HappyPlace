@@ -33,7 +33,7 @@ export class BookingComponent implements OnInit {
        this.eightSeat = doc.data().eightSeat;
        console.log(this.twoSeat);
        
-      //  this.UnResvTable = doc.data()
+      //this.UnResvTable = doc.data()
       
       
     })
@@ -48,7 +48,8 @@ export class BookingComponent implements OnInit {
       name: '',
       email: '',
       phone: '',
-      date: new Date(),
+      date: new Date().toDateString(),
+      time: '',
       twoSeater: ''  ,
       fourSeater: ''  ,
       eightSeater: ''  

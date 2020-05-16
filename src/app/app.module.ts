@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
-import { NgModule } from '@angular/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgxSpinnerModule } from "ngx-spinner";
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -74,6 +75,7 @@ import { OrdersComponent } from './content/users/user-profile/orders/orders.comp
   imports: [
     BrowserModule,
     MatProgressSpinnerModule,
+    NgxSpinnerModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -85,6 +87,7 @@ import { OrdersComponent } from './content/users/user-profile/orders/orders.comp
     AngularFireDatabaseModule,
     ToastrModule.forRoot()
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ UserService, AuthService ],
   bootstrap: [AppComponent]
 })

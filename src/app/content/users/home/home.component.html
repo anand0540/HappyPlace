@@ -37,27 +37,33 @@
         </div>
       </div>
     </div> -->
-    <mat-spinner style="margin:0 auto;" color="warn" *ngIf="!todayList" ></mat-spinner>
+    <!-- <mat-spinner style="margin:0 auto;" color="black" *ngIf="!todayList" ></mat-spinner> -->
 
-  <div *ngIf="todayList" class="featuredboxwrapper">
-    <div class="leftwrapper">
-      <div class="featuredheadingwrapper">
-        Today's Specials
-      </div>
-      <div class="featureddetailswrapper">
-        <div class="itemheading">{{todayList[length].caption}}</div>
-        <div class="details"> {{todayList[length].description}} </div>
-      </div>
-      <div class="featuredpricewrapper">
-        <p> &#8377; {{todayList[length].amount}} &nbsp;</p>
-      </div>
-    </div>
-    <div class="rightwrapper">
-      <img [src]="todayList[length].imageUrl" [alt]="todayList[length].caption" width=100%>
-    </div>
-  </div> 
-  <mat-spinner style="margin:0 auto;" color="warn" *ngIf="!testimonialList" ></mat-spinner>
+<div>
+    <ngx-spinner *ngIf="!todayList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner>
 
+    <div *ngIf="todayList" class="featuredboxwrapper">
+        <div class="leftwrapper">
+          <div class="featuredheadingwrapper">
+            Today's Specials
+          </div>
+          <div class="featureddetailswrapper">
+            <div class="itemheading">{{todayList[length].caption}}</div>
+            <div class="details"> {{todayList[length].description}} </div>
+          </div>
+          <div class="featuredpricewrapper">
+            <p> &#8377; {{todayList[length].amount}} &nbsp;</p>
+          </div>
+        </div>
+        <div class="rightwrapper">
+          <img [src]="todayList[length].imageUrl" [alt]="todayList[length].caption" width=100%>
+        </div>
+      </div> 
+</div>
+
+<div>
+  <!-- <mat-spinner style="margin:0 auto;" color="warn" *ngIf="!testimonialList" ></mat-spinner> -->
+  <ngx-spinner *ngIf="!todayList"  size = "medium" color = "#06252b" type = "timer" [fullScreen] = "false"><p style="color: white" > Loading... </p></ngx-spinner>
   <div class="testimonialswrapper">
     <div class="testimonialsheadingwrapper">Testimonials</div>
     <div class="gridwrapwrapper">
@@ -124,6 +130,8 @@
       </form>
     </div>
   </div>
+</div>
+
   <div class="finalwrapper">
     <div class="bottomleftwrapper">
       <iframe width=100% height="680px"

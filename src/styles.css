@@ -586,7 +586,7 @@ textarea.ng-touched.ng-invalid{
   line-height: normal;
   font-size: 2.5em;
   text-align: center;
-  margin-left:32%;
+  margin-left:35%;
   color: #000000;
   padding: 50px;
 }
@@ -624,6 +624,7 @@ textarea.ng-touched.ng-invalid{
     font-family: Roboto;
     font-size: 80px;
     text-align: center;
+    margin: 0 20px;
     
 }
 

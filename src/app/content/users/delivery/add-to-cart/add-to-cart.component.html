@@ -13,17 +13,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹300</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(1)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(1,'Scallops')">
 						-
 					</button>
-					<!-- <button
-									class="orderMenu--item--buttonLess"
-									onClick={() => this.decreaseQty(1)}
-								>
-									-
-								</button> -->
+					
 					<h6 class="orderMenu--item--h6">{{count[0]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(1)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(1,'Scallops')">
 						+
 					</button>
 					<!-- <button
@@ -47,12 +42,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹400</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(2)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(2,'Chilli Chicken')">
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[1]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(2)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(2,'Chilli Chicken')">
 
 						+
 					</button>
@@ -70,12 +65,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹600</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(3)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(3, 'Steak Tartare')">
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[2]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(3)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(3, 'Steak Tartare')">
 						+
 					</button>
 				</div>
@@ -93,12 +88,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹300</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(4)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(4, 'Smoked Salmon Pancakes')">
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[3]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(4)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(4,'Smoked Salmon Pancakes')">
 
 						+
 					</button>
@@ -116,12 +111,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹200</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(5)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(5,'Strawberry Fudge')">
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[4]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(5)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(5,'Strawberry Fudge')">
 
 						+
 					</button>
@@ -138,12 +133,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹200</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(6)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(6,'Strawberry Fudge')">
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[5]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(6)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(6,'Strawberry Fudge')">
 
 						+
 					</button>
@@ -163,12 +158,12 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹150</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(7)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(7,'Frozen Yogurt')">
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[6]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(7)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(7,'Frozen Yogurt')">
 
 
 						+
@@ -188,13 +183,13 @@
 				</div>
 				<h5 class="orderMenu--item--price">₹700</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(8)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(8,'Red Roses and Champagne')">
 
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[7]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(8)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(8,'Red Roses and Champagne')">
 
 
 						+
@@ -213,13 +208,13 @@
 				</div>
 				<h5 class="orderMenu--item--price">&#8377; {{todayList[length].amount}}</h5>
 				<div class="orderMenu--item--qtyContainer">
-					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(9)">
+					<button class="orderMenu--item--buttonLess" (click)="decreaseQty(9, 'Todays Special')">
 
 
 						-
 					</button>
 					<h6 class="orderMenu--item--h6">{{count[8]}}</h6>
-					<button class="orderMenu--item--buttonMore" (click)="increaseQty(9)">
+					<button class="orderMenu--item--buttonMore" (click)="increaseQty(9,'Todays Special')">
 
 
 						+

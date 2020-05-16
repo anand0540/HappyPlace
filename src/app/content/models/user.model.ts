@@ -20,6 +20,8 @@ export interface Admin{
 
 export class Order {
      id: string;
+     uid:string;
+     time:string;
      firstName: string;
      lastName: string;
      house: string;
@@ -37,7 +39,8 @@ export class Table {
      name : string;
      phone: string;
      email: string;
-     date: Date;
+     date: string;
+     time: string;
      twoSeater: string;
      fourSeater: string;
      eightSeater: string;
@@ -56,6 +59,7 @@ export class Testimonial{
 }
 export class Address{
      id: string;
+     uid: string;
      firstName: string;
      lastName: string;
      house: string;

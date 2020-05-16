@@ -41,21 +41,22 @@ export class AdminOrderStatusComponent implements OnInit {
     })
   }
   deleteBooking(id: string){
-    if(confirm("Are you sure about deleting this booking? ")){
-      this.firestore.doc('Tables/'+id).delete();
-      this.toastr.success("Booking deleted");
+    if(confirm("Are you sure about declining this booking? ")){
+      this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
+      // this.firestore.doc('Tables/'+id).delete();
+      this.toastr.success("Booking declined");
     }
   }
-  deleteOrder(id:string){
-    if(confirm(" Are you sure about deleting this orders?")){
-      this.firestore.doc('Orders/'+id).delete();
-      this.toastr.success("Order deleted");
+  deleteOrder(id){
+    if(confirm(" Are you sure about declining this orders?")){
+      this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
+      // this.firestore.doc('Orders/'+id).delete();
+      this.toastr.success("Order declined");
+      // this.elRef.nativeElement.querySelector('#'+id).style.display = "none";
 
     }
   }
   bookingRead(id){
-    // this.bookingMsgRead=true;
-    // console.log("ordChanged");
     this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "yellowgreen";
 
   }

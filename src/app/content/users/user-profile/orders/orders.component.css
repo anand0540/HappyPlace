@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    margin-left: 0 !important;
+}
+.items{
+    
+    position: relative;
+    width: 800px;
+    min-height: 200px;
+    display: inline-block;
+    color: #3d4152;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 30px 0;
+}
+.box{
+    border: 2px inset #144D72;
+    padding: 20px;
+    width: 800px;
+
+}
+
+.lmarg{
+    margin-left : 20px;
+
+
+}
+.add-name{
+    font-size: 15px;
+    color: #535665;
+    line-height: 20px;
+    margin-top: 8px;   
+     text-transform: capitalize;
+     font-family: ProximaNova,Arial,Helvetica Neue,sans-serif;
+}

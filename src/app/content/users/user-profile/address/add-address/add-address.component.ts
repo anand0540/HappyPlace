@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/content/services/auth.service';
 
 @Component({
   selector: 'app-add-address',
@@ -14,6 +15,7 @@ export class AddAddressComponent implements OnInit {
   addType = 'Home'
 
   constructor(public userServ: UserService,
+    public authServ: AuthService,
     private router: Router,
     private firestore: AngularFirestore,
     private toastr: ToastrService,
@@ -50,6 +52,7 @@ export class AddAddressComponent implements OnInit {
       form.resetForm();
     }
     this.userServ.addressData = {
+      uid:'',
       id: '',
       firstName: '',
       lastName: '',

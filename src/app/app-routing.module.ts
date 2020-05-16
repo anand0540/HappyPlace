@@ -27,6 +27,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { AddressComponent } from './content/users/user-profile/address/address.component';
 import { EditAddressComponent } from './content/users/user-profile/address/edit-address/edit-address.component';
 import { AddAddressComponent } from './content/users/user-profile/address/add-address/add-address.component';
+import { OrdersComponent } from './content/users/user-profile/orders/orders.component';
 
 
 
@@ -48,9 +49,11 @@ const routes: Routes = [
       { path: 'forgot', component: ForgotPasswordComponent,canActivate: [SecureInnerPagesGuard] },
       { path: 'profile', component: UserProfileComponent,canActivate: [AuthGuard],
         children: [
+          { path: '', redirectTo: 'orders', pathMatch: 'full' },
           {path: 'address', component: AddressComponent },
           {path: 'edit-address', component: EditAddressComponent },
           {path: 'add-address', component: AddAddressComponent },
+          {path: 'orders', component: OrdersComponent },
 
         ]
       },
