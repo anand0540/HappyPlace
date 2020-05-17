@@ -52,9 +52,37 @@ export class AuthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        // window.alert(error.message)
+        window.alert(error.message)
       })
   }
+    // Sign up with email/password
+    SignUp(email, password) {
+      
+      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then((result) => {
+         
+          this.SendVerificationMail();
+          
+          this.SetUserData(result.user);
+        }).catch((error) => {
+          window.alert(error.message);
+          this.router.navigate(['/users/signup']);
+  
+        })
+    }
+  SetUserData(user) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    const userData:User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified    }
+    return userRef.set(userData, {
+      merge: true
+    })
+  }
+
   adminSignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -66,44 +94,36 @@ export class AuthService {
         window.alert(error.message)
       })
   }
-  // Sign up with email/password
-  SignUp(email, password, name, phone) {
-    console.log(name);
-    
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        // console.log(result);
-        // console.log(typeof(result));
-        
-        
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        this.SendVerificationMail();
-        this.router.navigate(['/users/verify-email']);
-        // console.log(typeof(result.user));
-        // let data = result.user;
-        // data.displayName = name;
-        // console.log(data);
-        
-        this.SetUserData(result.user, name, phone);
-      }).catch((error) => {
-        window.alert(error.message);
-        this.router.navigate(['/users/signup']);
-
-      })
-  }
   adminSignup(email, password){
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
       /* Call the SendVerificaitonMail() function when new user sign 
       up and returns promise */
-      this.SendVerificationMail();
       this.router.navigate(['/admin/dahboard']);
       this.SetAdminData(result.user);
     }).catch((error) => {
       window.alert(error.message)
     })
   }
+  SetAdminData(admin){
+    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`Admins/${admin.uid}`);
+    const adminData:Admin = {
+      uid: admin.uid,
+      email: admin.email,
+      displayName: admin.displayName,
+      photoURL: admin.photoURL,
+      emailVerified: admin.emailVerified
+    }
+    return adminRef.set(adminData, {
+      merge: true
+    })
+  }
+
+
+  
+
+
+ 
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
@@ -127,7 +147,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null) ? true : false;
+    return (user !== null&&user.emailVerified !== false) ? true : false;
   }
   get adminisLoggedIn() : boolean{
     const admin = JSON.parse(localStorage.getItem('admin'));
@@ -156,33 +176,8 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user,name?:string,phone?:string) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData = {
-      uid: user.uid,
-      email: user.email,
-      displayName: name,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      phone:phone
-    }
-    return userRef.set(userData, {
-      merge: true
-    })
-  }
-  SetAdminData(admin){
-    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`admins/${admin.uid}`);
-    const adminData: Admin = {
-      uid: admin.uid,
-      email: admin.email,
-      name: admin.name,
-      photoURL: admin.photoURL,
-      emailVerified: admin.emailVerified
-    }
-    return adminRef.set(adminData, {
-      merge: true
-    })
-  }
+  
+
 
   // Sign out 
   SignOut() {

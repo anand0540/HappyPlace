@@ -11,22 +11,22 @@
                 <ul class="list-unstyled components">
                     
                    
-                    <li>
-                        <a routerLink="user">User Profile</a>
+                    <li id="user" (click)="user()">
+                        <a >User Profile</a>
                     </li>
                    
-                    <li>
-                        <a routerLink="order">Orders</a>
+                    <li id="order"  (click)="order()">
+                        <a>Orders</a>
                     </li>
-                    <li>
-                            <a routerLink="booking">Bookings</a>
+                    <li id="booking"  (click)="booking()">
+                            <a>Bookings</a>
                         </li>
-                        <li>
-                                <a routerLink="set-table">Set Tables</a>
+                        <li id="set" (click)="setTable()">
+                                <a>Set Tables</a>
                             </li>
-                    <li>
+                    <li  id="special" (click)="todaySpecial()">
                           
-                        <a routerLink="today-special">Today's Special</a>
+                        <a>Today's Special</a>
                     </li>
                     <li>
                             <a (click)="authServ.adminSignOut()">Sign Out</a>

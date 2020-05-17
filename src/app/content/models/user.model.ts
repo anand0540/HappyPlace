@@ -4,13 +4,12 @@ export interface User{
      displayName: string;
      photoURL: string;
      emailVerified: boolean;
-     phone: string;
 
 }
 export interface Admin{
      uid: string;
      email: string;
-     name: string;
+     displayName: string;
      photoURL: string;
      emailVerified: boolean;
 }

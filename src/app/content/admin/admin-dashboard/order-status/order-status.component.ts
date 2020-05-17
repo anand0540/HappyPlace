@@ -2,6 +2,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { UserService } from 'src/app/content/services/user.service';
 import { Table, Order, UnresTable } from 'src/app/content/models/user.model';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/content/services/auth.service';
 
 
 @Component({
@@ -14,15 +17,19 @@ export class AdminOrderStatusComponent implements OnInit {
   orderMsgRead = false;
  
 
-  constructor(private service: UserService, 
+  constructor( 
               public userServ: UserService,
+              private authServ: AuthService,
+              private firestore: AngularFirestore,
               private toastr: ToastrService,
               private elRef: ElementRef,
+              private spinner: NgxSpinnerService
     ) { }
 
   ngOnInit() {
-  
-    this.service.getOrder().subscribe(actionArr=>{
+    // this.spinner.show();
+
+    this.userServ.getOrder().subscribe(actionArr=>{
       this.list = actionArr.map(item => {
        
         return {id:item.payload.doc.id, ...item.payload.doc.data() as Order};  
@@ -31,14 +38,24 @@ export class AdminOrderStatusComponent implements OnInit {
    
   }
   
-  orderRead(id){
+  orderRead(user,id){
+    if(confirm(" Accept this orders?")){
+    const data = user;
+    data.email = this.authServ.userData.email;
     this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "yellowgreen";
+    this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
+    this.firestore.collection('acceptedOrders').add(user);
+    }
   } 
-  deleteOrder(id){
+  deleteOrder(user,id){
     if(confirm(" Are you sure about declining this orders?")){
+      const data = user;
+      data.email = this.authServ.userData.email;
       this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
+      this.firestore.collection('declineOrders').add(user);
+      this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
+
       // this.firestore.doc('Orders/'+id).delete();
-      this.toastr.success("Order declined");
       // this.elRef.nativeElement.querySelector('#'+id).style.display = "none";
 
     }

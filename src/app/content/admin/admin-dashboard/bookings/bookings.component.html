@@ -13,6 +13,8 @@
             <th>Actions</th>
           </thead>
           <tbody >
+              <ngx-spinner *ngIf="!bookingList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner>
+
             <tr  [attr.id]="user.id"
                 *ngFor="let user of bookingList"
                 >
@@ -23,7 +25,11 @@
               <td> {{user.twoSeater}} </td>
               <td> {{user.fourSeater}} </td>
               <td> {{user.eightSeater}} </td>
-              <td> <a class="btn text-danger" (click)="bookingRead(user.id)"><i class="fa fa-check-circle"></i></a> <a class="btn text-danger" (click)="deleteBooking(user.id)"> <i class="fa fa-trash"></i> </a> </td>
+              <td> 
+                <div [attr.id]="user.id + 'o'">
+                  <a class="btn text-danger" (click)="bookingRead(user,user.id)"><i class="fa fa-check-circle"></i></a> 
+                  <a class="btn text-danger" (click)="deleteBooking(user,user.id)"> <i class="fa fa-trash"></i> </a> </div>
+                </td>
             </tr>
           </tbody>
         </table>

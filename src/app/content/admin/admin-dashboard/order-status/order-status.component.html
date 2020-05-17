@@ -15,7 +15,8 @@
                 <th>Actions</th>
               </thead>
               <tbody>
-                
+                  <!-- <ngx-spinner *ngIf="!list" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner> -->
+
                       <tr [attr.id]="user.id"
                     *ngFor="let user of list">
                     <td> {{user.firstName}} {{user.lastName}} </td>
@@ -25,8 +26,9 @@
                     <td> {{user.amount}} </td>
                     <!-- <td> {{user.payment}} </td> -->
                     <td> 
-                      <a class="btn text-danger" (click)="orderRead(user.id)"><i class="fa fa-check-circle"></i></a> 
-                      <a class="btn text-danger" (click)="deleteOrder(user.id)"> <i class="fa fa-trash"></i> </a>
+                      <div [attr.id]="user.id +'o'">
+                          <a class="btn text-danger" (click)="orderRead(user,user.id)"><i class="fa fa-check-circle"></i></a> 
+                          <a class="btn text-danger" (click)="deleteOrder(user,user.id)"> <i class="fa fa-trash"></i> </a></div>
                     </td>
                   </tr>
                 <!-- </a> -->

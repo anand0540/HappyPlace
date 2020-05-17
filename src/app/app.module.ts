@@ -26,15 +26,6 @@ import { UsersComponent } from './content/users/users.component';
 import { environment } from '../environments/environment';
 import { AuthService } from './content/services/auth.service';
 import { UserService } from './content/services/user.service';
-import { ToastrModule } from 'ngx-toastr';
-
-// Firebase imports
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import {AngularFireStorageModule, BUCKET} from '@angular/fire/storage'
-import {AngularFireDatabaseModule} from '@angular/fire/database'
-import { AngularFireAuthModule } from "@angular/fire/auth";
 import { ForgotPasswordComponent } from './content/users/authenticate/forgot-password/forgot-password.component';
 import { UserProfileComponent } from './content/users/user-profile/user-profile.component';
 import { VerifyEmailComponent } from './content/users/authenticate/verify-email/verify-email.component';
@@ -45,6 +36,16 @@ import { AddAddressComponent } from './content/users/user-profile/address/add-ad
 import { OrdersComponent } from './content/users/user-profile/orders/orders.component';
 import { BookingsComponent } from './content/admin/admin-dashboard/bookings/bookings.component';
 import { SetTableComponent } from './content/admin/admin-dashboard/set-table/set-table.component';
+import { ToastrModule } from 'ngx-toastr';
+
+// Firebase imports
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {AngularFireStorageModule, BUCKET} from '@angular/fire/storage'
+import {AngularFireDatabaseModule} from '@angular/fire/database'
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireFunctionsModule} from '@angular/fire/functions'
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { SetTableComponent } from './content/admin/admin-dashboard/set-table/set
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireFunctionsModule,
     AngularFireDatabaseModule,
     ToastrModule.forRoot()
   ],

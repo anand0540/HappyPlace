@@ -1,6 +1,6 @@
 
 <div class="cont">
-  <div>
+  <div style="margin-left:50px;transform: translateY(30px);">
     <div class="name">
       {{authService.userData.displayName}}
     </div>
@@ -16,11 +16,11 @@
       <div class="c2a">
         <div class="sidenav">
           <ul class="list-unstyled components"> 
-              <li class="list">
-                  <a routerLink="orders"> <span class="fa fa-shopping-bag"></span> &nbsp;Orders</a>
+              <li class="list" id="order" (click)="orders()">
+                  <a > <span class="fa fa-shopping-bag"></span> &nbsp;Orders</a>
               </li>  
-            <li class="list">
-                <a routerLink="address"> <span class="fa fa-address-book"></span> &nbsp;Addresses</a>
+            <li class="list" id="address" (click)="address()">
+                <a > <span class="fa fa-address-book"></span> &nbsp;Addresses</a>
             </li>
             
             </ul>

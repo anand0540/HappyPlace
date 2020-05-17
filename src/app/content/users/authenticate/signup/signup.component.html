@@ -14,12 +14,12 @@
                 <input class="sPass" type="password" name="pass" placeholder="Password" style="position: absolute !important;
                 top: 25%;left: -14%" #userPwd required><br>
                 <!-- <input class="sconfirmPass" type="password" name="confirmPass" placeholder="Confirm Password"><br> -->
-                <input class="sconfirmPass" type="text" name="displayName" placeholder="Name" style="position: absolute !important;
+                <!-- <input class="sconfirmPass" type="text" name="displayName" placeholder="Name" style="position: absolute !important;
                 top: 50%;left: -14%" #displayName required><br>
                 <input class="sName" type="tel" maxlength="10" name="Mobile" placeholder="Mobile Number" style="position: absolute !important;
-                top: 75%;left: -14%" #phone required><br>
+                top: 75%;left: -14%" #phone required><br> -->
 
-                <button type="button" class="btn btn-dark btn-sm" [disabled]="form.invalid" (click)="authService.SignUp(userEmail.value, userPwd.value,displayName.value, phone.value)" style="position: absolute !important; top: 255px !important; ">SignUp</button>
+                <button type="button" class="btn btn-dark btn-sm" [disabled]="form.invalid" (click)="authService.SignUp(userEmail.value, userPwd.value)" style="position: absolute !important; top: 255px !important; ">SignUp</button>
                 <div class="or" style="position: absolute !important; top: 300px !important; ">
                     <hr class="orlineL"> OR
                     <hr class="orlineR">
