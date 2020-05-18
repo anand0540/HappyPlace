@@ -20,6 +20,10 @@ export class UserService{
    
      // adminLogin = new EventEmitter<boolean>();
      constructor(private authServ: AuthService, private firestore: AngularFirestore, private firebase: AngularFireDatabase){}
+     getAllOrders(){
+          return this.firestore.collection('newOrders').snapshotChanges();
+
+     }
      getOrder(){
 
           return this.firestore.collection('newOrders',ref=>{

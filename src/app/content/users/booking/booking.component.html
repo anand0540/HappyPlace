@@ -32,29 +32,29 @@
         <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
             <div>
                 <br>
-                <input name="name" #name="ngModel" [(ngModel)]="userServ.tableData.name" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'" class="formbox form-margin"/>
+                <input name="name" #name="ngModel" [(ngModel)]="userServ.tableData.name" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'" class="formbox form-margin" required/>
             </div>
             <div>
                 <input name="phone" #phone="ngModel" [(ngModel)]="userServ.tableData.phone" class="formbox form-margin" placeholder="MOBILE NUMBER" onfocus="this.placeholder=''"
                     onblur="this.placeholder='MOBILE NUMBER'" type="phone" value="" 
-                    border-top=none; />
+                    border-top=none; required />
             </div>
             <div>
                 <input name="email" #email="ngModel" [(ngModel)]="userServ.tableData.email" class="formbox form-margin" placeholder="EMAIL " onfocus="this.placeholder=''"
-                    onblur="this.placeholder=' EMAIL'" type="email"  />
+                    onblur="this.placeholder=' EMAIL'" type="email" required />
             </div>
             <div>
                     <input name="date" #phone="ngModel" [(ngModel)]="userServ.tableData.date" placeholder="DATE" class="formbox form-margin" type="text" onfocus="(this.type='date')"
-                    onblur="if(!this.value)this.type='text'"   />
+                    onblur="if(!this.value)this.type='text'" required  />
             </div>
             <div>
                     <input name="time" #time="ngModel" [(ngModel)]="userServ.tableData.time" placeholder="Time" class="formbox form-margin" type="text" onfocus="(this.type='time')"
-                    onblur="if(!this.value)this.type='text'"   />
+                    onblur="if(!this.value)this.type='text'" required  />
             </div>
             <div class="form-margin">
                 <span style="margin-left: 10px;color: grey">2-seater:</span>
                 <span>  
-                    <select name="twoSeater" #twoSeater="ngModel" [(ngModel)]="userServ.tableData.twoSeater" type="number" style="margin-left: 30px">
+                    <select name="twoSeater" #twoSeater="ngModel" [(ngModel)]="userServ.tableData.twoSeater" type="number" style="margin-left: 30px" >
                         <option value="0">Tables</option>
     
                         <option value="1">1</option>
@@ -100,7 +100,7 @@
            
             <div>
 
-                <button type="submit" class="btn btn-dark " style="margin:10% 0 10% 30% ;">Submit</button>
+                <button [disabled]="!form.valid" type="submit" class="btn btn-dark " style="margin:10% 0 10% 30% ;">Submit</button>
 
 
             </div>

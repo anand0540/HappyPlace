@@ -71,6 +71,7 @@
     #sidebar ul li a:hover {
         color: #dc3545;
         background: #fff;
+        cursor: pointer;
     }
     .clicked{
         color: #dc3545;

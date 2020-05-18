@@ -31,6 +31,7 @@ export class Order {
      addressType: string;
      order:string[];
      total:number;
+     email: string;
     
     }
 export class Table {

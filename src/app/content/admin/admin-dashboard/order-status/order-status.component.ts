@@ -29,7 +29,7 @@ export class AdminOrderStatusComponent implements OnInit {
   ngOnInit() {
     // this.spinner.show();
 
-    this.userServ.getOrder().subscribe(actionArr=>{
+    this.userServ.getAllOrders().subscribe(actionArr=>{
       this.list = actionArr.map(item => {
        
         return {id:item.payload.doc.id, ...item.payload.doc.data() as Order};  
@@ -40,8 +40,6 @@ export class AdminOrderStatusComponent implements OnInit {
   
   orderRead(user,id){
     if(confirm(" Accept this orders?")){
-    const data = user;
-    data.email = this.authServ.userData.email;
     this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "yellowgreen";
     this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
     this.firestore.collection('acceptedOrders').add(user);
@@ -49,8 +47,6 @@ export class AdminOrderStatusComponent implements OnInit {
   } 
   deleteOrder(user,id){
     if(confirm(" Are you sure about declining this orders?")){
-      const data = user;
-      data.email = this.authServ.userData.email;
       this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
       this.firestore.collection('declineOrders').add(user);
       this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";

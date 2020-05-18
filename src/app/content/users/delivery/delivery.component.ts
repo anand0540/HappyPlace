@@ -65,6 +65,7 @@ export class DeliveryComponent  {
     let timeData = timeArr[0];
 
     let data = form.value;
+    data.email = this.authServ.userData.email;
     data.time = timeData;
     data.fOrder = this.userServ.billData.fOrder;
     data.id ='order-'+ time;
