@@ -27,7 +27,7 @@ exports.sendEmailNotification = functions.firestore.document('acceptedBooking/{i
             
                         <div style="background-image: linear-gradient(to top right, #12515E, black);">
                             <div style="padding:30px">
-                                <p style="font-size= 50px !important; color:#ffbe00 !important; margin-left:325px !important;">Happy Place</p>
+                                <p style="font-size: 50px !important; color:#ffbe00 !important; margin-left:260px !important;">Happy Place</p>
                                     <p style="color:#fff;font-size:16;line-height:18px" > Dear ${data.name},</p><br/> 
                                     <p style="color:#fff;font-size:28;font-weight:600; line-height:22px">We are happy to inform that your booking of Two Seater: <i style="color:red">${data.twoSeater} </i> , Four Seater: <i style="color:red">${data.fourSeater} </i> , Eight Seater: <i style="color:red">${data.eightSeater} </i>  for <i style="color:red">${data.date} - ${data.time} </i>  has been accepted.</p> <br/>
                                     <p style="color:#fff;font-size:16; line-height:18px">From the happiest place</p>
@@ -58,7 +58,7 @@ exports.sendCancelBookingNotification = functions.firestore.document('declineBoo
                    
             <div style="background-image: linear-gradient(to top right, #12515E, black);">
             <div style="padding:30px">
-                <p style="font-size= 50px !important; color:#ffbe00 !important; margin-left:325px !important;">Happy Place</p>
+                <p style="font-size: 50px !important; color:#ffbe00 !important; margin-left:260px !important;">Happy Place</p>
                     <p style="color:#fff;font-size:16;line-height:18px" > Dear ${data.name},</p><br/> 
                     <p style="color:#fff;font-size:28;font-weight:600; line-height:22px">We are sorry to inform that your booking of Two Seater: <i style="color:red">${data.twoSeater} </i> , Four Seater: <i style="color:red">${data.fourSeater} </i> , Eight Seater: <i style="color:red">${data.eightSeater} </i>  for <i style="color:red">${data.date} - ${data.time} </i>  has been declined. Please try again after sometime.</p> <br/>
                     <p style="color:#fff;font-size:16; line-height:18px">From the happiest place</p>
@@ -89,7 +89,7 @@ exports.sendAcceptedOrderNotification = functions.firestore.document('acceptedOr
             
                         <div style="background-image: linear-gradient(to top right, #12515E, black);">
                             <div style="padding:30px">
-                                <p style="font-size= 50px !important; color:#ffbe00 !important; margin-left:325px !important;">Happy Place</p>
+                                <p style="font-size: 50px !important; color:#ffbe00 !important; margin-left:260px !important;">Happy Place</p>
                                     <p style="color:#fff;font-size:16;line-height:18px" > Dear ${data.firstName},</p><br/> 
                                     <p style="color:#fff;font-size:28;font-weight:600; line-height:22px">We are happy to inform that your order of <i style="color:red">${data.fOrder} </i> has been accepted. Please keep &#8377; <i style="color:red">${data.amount} </i> ready.</p> <br/>
                                     <p style="color:#fff;font-size:16; line-height:18px">From the happiest place</p>
@@ -118,7 +118,7 @@ exports.sendDeclinedOrderNotification = functions.firestore.document('declineOrd
             html: `
                     <div style="background-image: linear-gradient(to top right, #12515E, black);">
                         <div style="padding:30px">
-                            <p style="font-size= 50px !important; color:#ffbe00 !important; margin-left:325px !important;">Happy Place</p>
+                            <p style="font-size: 50px !important; color:#ffbe00 !important; margin-left:260px !important;">Happy Place</p>
                                 <p style="color:#fff;font-size:16;line-height:18px" > Dear ${data.firstName},</p><br/> 
                                 <p style="color:#fff;font-size:28;font-weight:600; line-height:22px">We are sorry to inform that your order of <i style="color:red">${data.fOrder} </i> has been declined. Please try again after some time.</p> <br/>
                                 <p style="color:#fff;font-size:16; line-height:18px">From the happiest place</p>
