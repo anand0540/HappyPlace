@@ -6,6 +6,11 @@
 @import url("https://fonts.googleapis.com/css?family=Francois+One");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
+/* @media screen and (min-width: 2388px) {
+  .testimonialswrapper{
+    height: 1400px;
+  } */
+
 h1{
   font-family: "Abril Fatface";
   font-size: 4em;
@@ -219,8 +224,11 @@ color: #000000;
   height: 500px;
   width: 50%;
 }
-
-
+@media screen and (min-width: 2388px) {
+  .testimonialswrapper{
+    height: 1200px;
+  }
+}
 .testimonialswrapper{
   display: flex;
   flex-direction: column;

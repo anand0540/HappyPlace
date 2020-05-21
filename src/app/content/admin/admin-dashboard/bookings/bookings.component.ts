@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Table } from 'src/app/content/models/user.model';
+import { Table, acceptTable, declineTable } from 'src/app/content/models/user.model';
 import { UserService } from 'src/app/content/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -13,6 +13,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class BookingsComponent implements OnInit {
   bookingList: Table[];
+  acceptList: acceptTable[];
+  declineList: declineTable[];
   bookingMsgRead = false;
   constructor(private service: UserService,
               private firestore: AngularFirestore,
@@ -23,32 +25,38 @@ export class BookingsComponent implements OnInit {
               ) { }
 
   ngOnInit(): void {
-    this.spinner.show();
+    // this.spinner.show();
     this.service.getBooking().subscribe(actionArr=>{
       this.bookingList = actionArr.map(item=>{
         return {id:item.payload.doc.id, ...item.payload.doc.data() as Table};
       })
     })
+    this.service.getAcceptedBookings().subscribe(actionArr=>{
+      this.acceptList = actionArr.map(item=>{
+        return {id:item.payload.doc.id, ...item.payload.doc.data() as acceptTable};
+      })
+    })
+    this.service.getDeclinedBookings().subscribe(actionArr=>{
+      this.declineList = actionArr.map(item=>{
+        return {id:item.payload.doc.id, ...item.payload.doc.data() as declineTable};
+      })
+    })
   }
-  bookingRead(user,id){
-    if(confirm("Are you sure about accepting this booking? ")){
-    this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "yellowgreen";
-    this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
-    
+  bookingRead(user,id){    
+    if(confirm("Are you sure about accepting this booking? ")){    
     this.firestore.collection('acceptedBooking').add(user);
-    //  const callable = this.fun.httpsCallable('genericEmail');
-    // callable({ text:"Booking Accepted", subject:"Table booked" }).subscribe(); 
+    this.firestore.doc('Tables/'+id).delete();
+
     }
    
 
   }
   deleteBooking(user,id: string){
+    console.log(id);
+    
     if(confirm("Are you sure about declining this booking? ")){
-      this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
-      this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
       this.firestore.collection('declineBooking').add(user);
-
-      // this.firestore.doc('Tables/'+id).delete();
+      this.firestore.doc('Tables/'+id).delete();
     }
   }
  

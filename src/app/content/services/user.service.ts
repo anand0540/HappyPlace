@@ -20,6 +20,26 @@ export class UserService{
    
      // adminLogin = new EventEmitter<boolean>();
      constructor(private authServ: AuthService, private firestore: AngularFirestore, private firebase: AngularFireDatabase){}
+     getAllOrders(){
+          return this.firestore.collection('newOrders').snapshotChanges();
+
+     }
+     getAcceptedOrders(){
+          return this.firestore.collection('acceptedOrders').snapshotChanges();
+
+     }
+     getDeclinedOrders(){
+          return this.firestore.collection('declineOrders').snapshotChanges();
+
+     }
+     getAcceptedBookings(){
+          return this.firestore.collection('acceptedBooking').snapshotChanges();
+
+     }
+     getDeclinedBookings(){
+          return this.firestore.collection('declineBooking').snapshotChanges();
+
+     }
      getOrder(){
 
           return this.firestore.collection('newOrders',ref=>{
