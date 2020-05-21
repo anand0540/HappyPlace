@@ -3,7 +3,7 @@
   "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
-    "happyplace": {
+    "HappyPlace": {
       "projectType": "application",
       "schematics": {},
       "root": "",

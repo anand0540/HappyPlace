@@ -19,6 +19,42 @@ export interface Admin{
 
 export class Order {
      id: string;
+     oid:string;
+     uid:string;
+     time:string;
+     firstName: string;
+     lastName: string;
+     house: string;
+     street: string;
+     area: string;
+     pincode: number;
+     mobile: number;
+     addressType: string;
+     order:string[];
+     total:number;
+     email: string;
+    
+    }
+    export class declinedOrder {
+     oid:string;
+     id: string;
+     uid:string;
+     time:string;
+     firstName: string;
+     lastName: string;
+     house: string;
+     street: string;
+     area: string;
+     pincode: number;
+     mobile: number;
+     addressType: string;
+     order:string[];
+     total:number;
+     email: string;
+    }
+    export class acceptedOrder {
+     oid:string;
+     id: string;
      uid:string;
      time:string;
      firstName: string;
@@ -46,6 +82,31 @@ export class Table {
      eightSeater: string;
 
 }
+export class acceptTable {
+     id: string;
+     name : string;
+     phone: string;
+     email: string;
+     date: string;
+     time: string;
+     twoSeater: string;
+     fourSeater: string;
+     eightSeater: string;
+
+}
+export class declineTable {
+     id: string;
+     name : string;
+     phone: string;
+     email: string;
+     date: string;
+     time: string;
+     twoSeater: string;
+     fourSeater: string;
+     eightSeater: string;
+
+}
+
 export class UnresTable{
      id:'RMMYsT84fXvKZZIoCUN2';
      twoSeat: string;

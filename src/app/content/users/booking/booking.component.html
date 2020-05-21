@@ -35,7 +35,7 @@
                 <input name="name" #name="ngModel" [(ngModel)]="userServ.tableData.name" placeholder="Name" onfocus="this.placeholder=''" onblur="this.placeholder='Name'" class="formbox form-margin" required/>
             </div>
             <div>
-                <input name="phone" #phone="ngModel" [(ngModel)]="userServ.tableData.phone" class="formbox form-margin" placeholder="MOBILE NUMBER" onfocus="this.placeholder=''"
+                <input maxlength="10" name="phone" #phone="ngModel" [(ngModel)]="userServ.tableData.phone" class="formbox form-margin" placeholder="MOBILE NUMBER" onfocus="this.placeholder=''"
                     onblur="this.placeholder='MOBILE NUMBER'" type="phone" value="" 
                     border-top=none; required />
             </div>

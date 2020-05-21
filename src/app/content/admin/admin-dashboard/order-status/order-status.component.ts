@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { UserService } from 'src/app/content/services/user.service';
-import { Table, Order, UnresTable } from 'src/app/content/models/user.model';
+import { Table, Order, UnresTable, acceptedOrder, declinedOrder } from 'src/app/content/models/user.model';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -14,6 +14,8 @@ import { AuthService } from 'src/app/content/services/auth.service';
 })
 export class AdminOrderStatusComponent implements OnInit {
   list: Order[];
+  acceptList: acceptedOrder[];
+  declineList: declinedOrder[];
   orderMsgRead = false;
  
 
@@ -35,23 +37,38 @@ export class AdminOrderStatusComponent implements OnInit {
         return {id:item.payload.doc.id, ...item.payload.doc.data() as Order};  
       })
     });
+    this.userServ.getAcceptedOrders().subscribe(actionArr=>{
+      this.acceptList = actionArr.map(item => {
+       
+        return {id:item.payload.doc.id, ...item.payload.doc.data() as acceptedOrder};  
+      })
+    });
+    this.userServ.getDeclinedOrders().subscribe(actionArr=>{
+      this.declineList = actionArr.map(item => {
+       
+        return {id:item.payload.doc.id, ...item.payload.doc.data() as declinedOrder};  
+      })
+    });
    
   }
   
-  orderRead(user,id){
+  orderRead(user,id:string, oid:string){
+    console.log(id);
+    
     if(confirm(" Accept this orders?")){
-    this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "yellowgreen";
-    this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
+    // this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "yellowgreen";
+    // this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
     this.firestore.collection('acceptedOrders').add(user);
+    this.firestore.doc('newOrders/'+id).delete();
     }
   } 
-  deleteOrder(user,id){
+  deleteOrder(user,id:string,oid:string){
     if(confirm(" Are you sure about declining this orders?")){
-      this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
+      // this.elRef.nativeElement.querySelector('#'+id).style.backgroundColor = "red";
       this.firestore.collection('declineOrders').add(user);
-      this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
+      // this.elRef.nativeElement.querySelector('#'+id+'o').style.display = "none";
 
-      // this.firestore.doc('Orders/'+id).delete();
+      this.firestore.doc('newOrders/'+id).delete();
       // this.elRef.nativeElement.querySelector('#'+id).style.display = "none";
 
     }

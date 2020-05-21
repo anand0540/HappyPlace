@@ -13,7 +13,7 @@
             <th>Actions</th>
           </thead>
           <tbody >
-              <ngx-spinner *ngIf="!bookingList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner>
+              <!-- <ngx-spinner *ngIf="!bookingList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner> -->
 
             <tr  [attr.id]="user.id"
                 *ngFor="let user of bookingList"
@@ -34,3 +34,65 @@
           </tbody>
         </table>
       </div>
+      <div class="div2">
+          <table class="table table-hover">
+            <caption class="orderMenu--intro" style=" caption-side:top ;font-size: 34px; color: #dc3545">Accepted Bookings
+            </caption>
+            <thead>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Timing</th>
+              <th>2-Seater</th>
+              <th>4-Seater</th>
+              <th>8-Seater</th>
+            </thead>
+            <tbody >
+  
+              <tr  [attr.id]="user.id"
+                  *ngFor="let user of acceptList"
+                  >
+                <td> {{user.name}} </td>
+                <td> {{user.phone}} </td>
+                <td>{{user.email}}</td>
+                <td> {{user.date}} {{user.time}} </td>
+                <td> {{user.twoSeater}} </td>
+                <td> {{user.fourSeater}} </td>
+                <td> {{user.eightSeater}} </td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="div2">
+            <table class="table table-hover">
+              <caption class="orderMenu--intro" style=" caption-side:top ;font-size: 34px; color: #dc3545">Declined Bookings
+              </caption>
+              <thead>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Timing</th>
+                <th>2-Seater</th>
+                <th>4-Seater</th>
+                <th>8-Seater</th>
+              </thead>
+              <tbody >
+                  <!-- <ngx-spinner *ngIf="!bookingList" size = "medium" color = "#06252b" type = "timer"><p style="color: white" > Loading... </p></ngx-spinner> -->
+    
+                <tr  [attr.id]="user.id"
+                    *ngFor="let user of declineList"
+                    >
+                  <td> {{user.name}} </td>
+                  <td> {{user.phone}} </td>
+                  <td>{{user.email}}</td>
+                  <td> {{user.date}} {{user.time}} </td>
+                  <td> {{user.twoSeater}} </td>
+                  <td> {{user.fourSeater}} </td>
+                  <td> {{user.eightSeater}} </td>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
